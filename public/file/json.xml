@@ -1,0 +1,28 @@
+<Vehicle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://regcheck.org.uk">
+<vehicleJson>
+{ "Description": "RENAULT MEGANE II", "RegistrationYear": "2007", "CarMake": { "CurrentTextValue": "RENAULT" }, "CarModel": { "CurrentTextValue": "MEGANE II" }, "EngineSize": { "CurrentTextValue": "7" }, "FuelType": { "CurrentTextValue": "DIESEL" }, "MakeDescription": { "CurrentTextValue": "RENAULT" }, "ModelDescription": { "CurrentTextValue": "MEGANE II" }, "Immobiliser": { "CurrentTextValue": "" }, "IndicativeValue": { "CurrentTextValue": 0 }, "DriverSide": { "CurrentTextValue": "" }, "BodyStyle": { "CurrentTextValue": "BERLINE 5 PORTES" }, "RegistrationDate": "2007-11-21", "ImageUrl": "http://immatriculationapi.com/image.aspx/@UkVOQVVMVCBNRUdBTkUgSUk=", "ExtendedData": { "anneeSortie": "2007", "boiteDeVitesse": "", "carburantVersion": "D", "carrosserieVersion": "", "classeSra": "L", "libVersion": "CARMINAT 1.9DCI 130", "libelleModele": "MEGANE II", "marque": "RE", "modele": "66", "produit": "", "puissance": "7", "version": "", "cleCarrosserie": "", "groupeSra": "33", "nbPlace": "5", "datePremiereMiseCirculation": "21112007", "questionBatterie": "", "electrique": "", "genre": "", "typeVehicule": "", "numSerieMoteur": "VF1BMS40637223414", "valeurANeufSRA": "", "niveauRisqueVol": "", "protectionConstructeur": "", "puissanceDyn": "", "segmentVeh": "" } }
+</vehicleJson>
+<vehicleData>
+<Description>RENAULT MEGANE II</Description>
+<RegistrationYear>2007</RegistrationYear>
+<CarMake>
+<CurrentTextValue>RENAULT</CurrentTextValue>
+</CarMake>
+<CarModel>MEGANE II</CarModel>
+<BodyStyle>
+<CurrentTextValue>BERLINE 5 PORTES</CurrentTextValue>
+</BodyStyle>
+<EngineSize>
+<CurrentTextValue>7</CurrentTextValue>
+</EngineSize>
+<FuelType>
+<CurrentTextValue>DIESEL</CurrentTextValue>
+</FuelType>
+<Immobiliser>
+<CurrentTextValue/>
+</Immobiliser>
+<NumberOfSeats>
+<CurrentValue>5</CurrentValue>
+</NumberOfSeats>
+</vehicleData>
+</Vehicle>
