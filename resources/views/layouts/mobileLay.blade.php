@@ -21,8 +21,13 @@
       font-family: 'Roboto', sans-serif;
     }
 
+    nav {
+      
+    }
+
     #navBar {
       height: fit-content;
+      width: 100%;
       position: fixed;
       z-index: 1;
       background-color: white;

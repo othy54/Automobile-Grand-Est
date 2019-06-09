@@ -11,13 +11,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
     <!-- Styles -->
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             font-display: fallback;
             margin: 0
+        }
+
+        #map {
+            height: 45vh;
         }
 
         #logo {
@@ -38,14 +44,55 @@
             color: #B81111;
             font-size: 1.3vw;
             margin-right: 30px;
-            
-            
         }
-       
+
         #menu>a:hover {
-            
             text-decoration: none;
-            border-bottom : 2px solid #B81111;
+            border-bottom: 2px solid #B81111;
+        }
+
+        #contactMe {
+            background-color: #B81111;
+        }
+
+        #contactMe input,
+        #contactMe textarea {
+            margin-top: 20px;
+        }
+
+        #contactMe p {
+            color: white;
+            font-size: 2vw;
+            font-weight: 500;
+        }
+
+        #contactMe button {
+            color: white;
+            border: 1px solid white;
+            background-color: transparent;
+            margin-top: 20px;
+            padding: 5px;
+            float: right;
+        }
+
+        #miniFooter {
+            background-color: #15171c;
+            height: 40px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #miniFooter a {
+            text-align: right;
+            color: gray;
+            text-decoration: none;
+        }
+
+        #info {
+            background-image: url('/img/contact.jpg');
+            background-size: cover;
+            color: white;
+            letter-spacing: 1.5px;
 
         }
     </style>
@@ -71,36 +118,107 @@
 
     @yield('content')
 
+    <div id="contactContent" class="d-flex" style="height: 70vh;">
+
+        <div style="width:50%;" id="info" class="d-flex align-items-center" data-aos="fade-right">
+
+            <div class="col-6" style="padding-left: 80px; height: 50%; ">
+                <div style="font-size: 2vw; font-weight:bold">
+                    CONTACT
+                </div>
+                <div style="font-size: 1.3vw; color: #B81111; font-weight:bold" class="my-4">
+                    Téléphone
+                </div>
+                <div>
+                    09 84 58 04 23 <br>
+                    06 45 31 84 39 <br>
+                    06 18 24 37 75 <br>
+                </div>
+                <div style="font-size: 1.3vw; color: #B81111; font-weight:bold" class="my-4">
+                    Adresse
+                </div>
+                <div>
+                    Chemin de la ville <br>
+                    54300 Hériménil
+                </div>
+            </div>
+
+            <div class="d-flex flex-column col-6" style="padding-left: 80px; height: 50%">
+                <div style="font-size: 2vw; font-weight:bold">
+                    HORAIRES
+                </div>
+                <div style="font-size: 1.3vw; color: #B81111; font-weight:bold" class="my-4">
+                    Lundi - Vendredi
+                </div>
+                <div>
+                    09h00 - 12h00 <br>
+                    14h00 - 19h00
+                </div>
+                <div style="font-size: 1.3vw; color: #B81111; font-weight:bold" class="my-4">
+                    Samedi
+                </div>
+                <div>
+                    09h00 - 19h00
+                </div>
+            </div>
 
 
-
-    <br>
-
-
-    <div style="height: 80vh">
-
-
-    </div>
-
-
-
-
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
         </div>
-        @endif
+
+        <div style="width:50%;" id="contactMe" class="d-flex justify-content-center" data-aos="fade-left">
+            <div style="width: 70%;" class="d-flex flex-column justify-content-center">
+                <p>Formulaire de contact</p>
+                <form method="POST" action=" {{ url('/contact') }} ">
+                    {{ csrf_field() }}
+
+                    <input id="nameForm" name='name' type="text" placeholder="Nom" class="form-control" required>
+                    <input id="emailForm" name='email' type="mail" placeholder="Mail" class="form-control" required>
+                    <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control">
+                    <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30" rows="10"
+                        class="form-control"></textarea>
+                    <button type="submit">Envoyer</button>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success" style="width: 50%">
+                        {{ session()->get('message') }}
+                    </div>
+                    @endif
+                </form>
+
+
+            </div>
+        </div>
 
     </div>
+
+
+    <div id="miniFooter">
+
+
+        <div class="d-flex justify-content-between align-items-center" style="width: 100%">
+            <div style="color: gray; padding-left: 350px; ">
+                Réalisation <strong> <a href="https://othman-bensaoula.com"> Othman Bensaoula </a> </strong> | 2019 <a
+                    href="mentions"> Mentions Légales </a>| <strong>Automobiles Grand Est</strong>
+            </div>
+            @if (Route::has('login'))
+            <div style="padding-right: 60px">
+                @auth
+                <a href="{{ url('/home') }}">Home</a> @else
+                <a href="{{ route('login') }}">Login</a> @if (Route::has('register'))
+                <a href="{{ route('register') }}">Register</a> @endif @endauth
+            </div>
+            @endif
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -109,22 +227,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
     <script>
         $(document).ready(function() {
+
+            AOS.init({
+                once: true,
+                duration: 700,
+            });
 
             $(window).scroll(function() {
 
                 var scroll = $(window).scrollTop();
-                if (scroll >= 150 ) {
-                    $('#logo').css({width: '193px', transition: '0.5s'})
-                }else{
-                    $('#logo').css({width: '285px', transition: '0.5s'})
+                if (scroll >= 150) {
+                    $('#logo').css({
+                        width: '193px',
+                        transition: '0.5s'
+                    })
+                } else {
+                    $('#logo').css({
+                        width: '285px',
+                        transition: '0.5s'
+                    })
                 }
-            })
+            });
 
+            
 
-        })
-                
+            
+
+        });
     </script>
     @yield('script')
 </body>
