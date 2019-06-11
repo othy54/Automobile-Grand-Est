@@ -7,7 +7,8 @@
         margin-right: 10px;
 
     }
-    .pretty{
+
+    .pretty {
         margin-top: 15px;
     }
 </style>
@@ -40,7 +41,11 @@
                         <label for="immatriculation">Plaque d'immatriculation : </label>
                         <input id="siv" type="text" name="immatriculation" class="" style="width: 15%;">
 
-                        <button class="btn btn-primary" id="searchVehicle"> Chercher </button>
+                        <button class="btn btn-primary mr-4" id="searchVehicle"> Chercher </button>
+
+                        <div id="loadingSpinner" class="spinner-border" style="display:none" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
 
                         <br><br>
 
@@ -184,7 +189,8 @@
 
                             <div class="col-12 mt-4">
                                 <label for="boite">Description</label>
-                                <textarea id="myTextArea" name="description" id="" rows="10" class="form-control">Options :
+                                <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
+                                    name="description" id="" rows="10" class="form-control">Options :
 </textarea>
                             </div>
 
@@ -259,6 +265,8 @@
 
     
         $('#searchVehicle ').on('click', function () {
+            $('#loadingSpinner').show();
+
             var siv = $('#siv').val();
 
             $.ajax({
@@ -270,6 +278,7 @@
                 },
                 
                 success: function(data){
+                    $('#loadingSpinner').hide();
                     var jsonObj = JSON.parse($($.parseXML(data)).find("vehicleJson").text());
                     console.log(jsonObj);
                     $('#brandVehicle').val(jsonObj.CarMake.CurrentTextValue);

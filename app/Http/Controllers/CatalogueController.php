@@ -12,15 +12,16 @@ class CatalogueController extends Controller
     public function showMe() {
 
 
-        $vehicles = DB::table('vehicles')->get();
-        $images = DB::table('images')->select('imageName')->where('imageNumber', 1)->get();
+        $vehicles = DB::table('vehicles')->orderBy('id', 'desc')->get();
+        $images = DB::table('images')->orderBy('vehicles_id', 'desc')->select('imageName')->where('imageNumber', 1)->get();
 
         if(Auth::check()){
 
         return view('catalogueBack', [
 
             'vehicles' => $vehicles,
-            'images' => $images
+            'images' => $images,
+            
             
         ]);
 
