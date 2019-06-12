@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
+
 @section('style')
+
 
 <style>
     .checkboxis>label {
@@ -50,13 +52,17 @@
                         <br><br>
 
                         <form action=" {{ url('/home/catalogue') }} " method="post" enctype="multipart/form-data"
-                            class="form-group d-flex flex-wrap">
+                            class="form-group d-flex flex-wrap dropzone">
                             @csrf
 
+
+
                             <div class="col-6 mt-4">
-                                <label for="image[]"> Photos </label>
+                                <label for="file"> Photos </label>
                                 <input type="file" name="image[]" id="file" multiple class="form-control champs">
                             </div>
+
+
 
 
                             <div class="col-6 mt-4">
@@ -132,7 +138,7 @@
                             </div>
 
                             <div class="col-12 mt-4 checkboxis">
-                                <p for="name">Options</p>
+                                <p>Options</p>
 
 
                                 <div class="pretty p-default">
@@ -183,14 +189,265 @@
                                         <label>Direction assistée</label>
                                     </div>
                                 </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="AUX" />
+                                    <div class="state p-danger">
+                                        <label>AUX</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="USB" />
+                                    <div class="state p-danger">
+                                        <label>USB</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Isofix" />
+                                    <div class="state p-danger">
+                                        <label>Isofix</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="GPS" />
+                                    <div class="state p-danger">
+                                        <label>GPS</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Climatiseur" />
+                                    <div class="state p-danger">
+                                        <label>Climatiseur</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Clim bi-zone" />
+                                    <div class="state p-danger">
+                                        <label>Clim bi-zone</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Chargeur 6 CD" />
+                                    <div class="state p-danger">
+                                        <label>Chargeur 6 CD</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Banquette 2/3 1/3" />
+                                    <div class="state p-danger">
+                                        <label>Banquette 2/3 1/3</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Démarrage sans clé" />
+                                    <div class="state p-danger">
+                                        <label>Démarrage sans clé</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Démarrage en côte" />
+                                    <div class="state p-danger">
+                                        <label>Démaragge en côté</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="4x4" />
+                                    <div class="state p-danger">
+                                        <label>4x4</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="4x2" />
+                                    <div class="state p-danger">
+                                        <label>4x2</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Système DVD" />
+                                    <div class="state p-danger">
+                                        <label>Système DVD</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Siège chauffant" />
+                                    <div class="state p-danger">
+                                        <label>Siège chauffant</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Siège refroidissant" />
+                                    <div class="state p-danger">
+                                        <label>Sièege refroidissement</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Siège electrique" />
+                                    <div class="state p-danger">
+                                        <label>Siège electrique</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Siège massant" />
+                                    <div class="state p-danger">
+                                        <label>Siège massant</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Vitre avant" />
+                                    <div class="state p-danger">
+                                        <label>Vitre avant</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Vitre arrière" />
+                                    <div class="state p-danger">
+                                        <label>Vitre arrière</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="MP3" />
+                                    <div class="state p-danger">
+                                        <label>MP3</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Affichage tête haute" />
+                                    <div class="state p-danger">
+                                        <label>Affichage tête haute</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="GPS indicatif" />
+                                    <div class="state p-danger">
+                                        <label>GPS indicatif</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Aide au stationnement avant" />
+                                    <div class="state p-danger">
+                                        <label>Aide au stationnement avant</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Aide au stationnement arrière" />
+                                    <div class="state p-danger">
+                                        <label>Aide au stationnement arrière</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Park assist" />
+                                    <div class="state p-danger">
+                                        <label>Park assist</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Anti-franchissement de ligne" />
+                                    <div class="state p-danger">
+                                        <label>Anti-franchissement de ligne</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Anti-collision" />
+                                    <div class="state p-danger">
+                                        <label>Anti-collision</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Vision nocturne" />
+                                    <div class="state p-danger">
+                                        <label>Vision nocturne</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Caméra de recul" />
+                                    <div class="state p-danger">
+                                        <label>Caméra de recul</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Caméra 360" />
+                                    <div class="state p-danger">
+                                        <label>Caméra 360</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Téléphone" />
+                                    <div class="state p-danger">
+                                        <label>Téléphone</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Chargeur induction" />
+                                    <div class="state p-danger">
+                                        <label>Chargeur induction</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Boite à gants réfrigéré" />
+                                    <div class="state p-danger">
+                                        <label>Boite à gants réfrigéré</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Centralisation automatique" />
+                                    <div class="state p-danger">
+                                        <label>Centralisation automatique</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Feu automatique" />
+                                    <div class="state p-danger">
+                                        <label>Automatique</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Essuie glace automatique" />
+                                    <div class="state p-danger">
+                                        <label>Essuie glace automatique</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Plein phare automatique" />
+                                    <div class="state p-danger">
+                                        <label>Plein phare automatique</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Xénon" />
+                                    <div class="state p-danger">
+                                        <label>Xénon</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Anti-brouillard avant" />
+                                    <div class="state p-danger">
+                                        <label>Anti-brouillard avant</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-default">
+                                    <input type="checkbox" class="myChecked" value="Attelage" />
+                                    <div class="state p-danger">
+                                        <label>Attelage</label>
+                                    </div>
+                                </div>
+                                
 
+
+
+
+                            </div>
+                            <div class="col-6  mt-4">
+
+                                <p>Plus d'options</p>
+                                <input type="text" id="moreOption" class="form-control"> <span
+                                    class="btn btn-success mt-1" id="addOption"> Ajouter </span> <span
+                                    class="btn btn-danger mt-1" style="float: right" id="btnReset"> Reset </span>
 
                             </div>
 
                             <div class="col-12 mt-4">
                                 <label for="boite">Description</label>
                                 <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
-                                    name="description" id="" rows="10" class="form-control">Options :
+                                    name="description" id="" rows="10" class="form-control" disabled>Options :
 </textarea>
                             </div>
 
@@ -259,10 +516,9 @@
 @section('script')
 
 
-
 <script>
     $(document).ready(function() {
-
+        $('#myTextArea').html('Options :\n');
     
         $('#searchVehicle ').on('click', function () {
             $('#loadingSpinner').show();
@@ -308,6 +564,15 @@
                 $('#myTextArea').html($('#myTextArea').html().split('- '+optionText+'\n').join(''))
             }
 
+        })
+
+        $('#addOption').on('click', function() {
+            $('#myTextArea').append('- '+$('#moreOption').val()+'\n');
+            $('#moreOption').val('')
+        })
+
+        $('#btnReset').on('click', function() {
+            $('#myTextArea').html('Options :\n');
         })
 
 })

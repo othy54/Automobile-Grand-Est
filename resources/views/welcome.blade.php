@@ -1,4 +1,5 @@
-@extends('layouts.desktopLay') @section('style')
+@extends('layouts.desktopLay') 
+@section('style')
 
 
 <style>
@@ -111,6 +112,8 @@
     #fifthContent img {
         width: 10%;
     }
+
+    
 </style>
 
 @stop @section('content')
