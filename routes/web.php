@@ -44,6 +44,18 @@ Route::post('/search', 'SearchVehicleController@search');
 
 Route::get('/catalogue', 'SearchVehicleCatalogueController@index');
 
+Route::get('/catalogue/{id}', function($id) {
+
+    $vehiclesId = DB::table('vehicles')->where('id', $id)->get();
+    $images = DB::table('images')->where('vehicles_id', $id)->orderBy('imageNumber','asc')->get();
+
+    return view('vehicle', [
+        'vehicle' => $vehiclesId,
+        'images' => $images
+    ]);
+
+});
+
 Route::post('/catalogue/search', 'SearchVehicleCatalogueController@search');
 
 Auth::routes(['register' => false]);

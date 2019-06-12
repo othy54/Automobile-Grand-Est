@@ -97,6 +97,20 @@
         color: white;
         text-align: center;
     }
+
+    a {
+        text-decoration: none !important;
+    }
+
+    #fifthContent {
+        color: #B81111;
+        font-size: 2vw;
+        background-color: whitesmoke
+    }
+
+    #fifthContent img {
+        width: 10%;
+    }
 </style>
 
 @stop @section('content')
@@ -198,7 +212,8 @@
     <div class="container mt-5">
         <div class="row justify-content-center ">
             <div style="width: 90%" id="cardSearch">
-                <form action="{{ url('/catalogue/search') }}" method="post" class="d-flex flex-wrap justify-content-center align-items-end">
+                <form action="{{ url('/catalogue/search') }}" method="post"
+                    class="d-flex flex-wrap justify-content-center align-items-end">
                     {{ csrf_field() }}
                     <div class="col-3">
                         <label for="brand">Marque</label> <select class="form-control mx-2" name="brand"
@@ -254,7 +269,8 @@
                     <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard"
                         style="width: 100%">
                     <div class="card-body">
-                        <h5 class="card-title"> {{ $vehicle->brand }} {{ $vehicle->model }} {{ $vehicle->version }}</h5>
+                        <h5 class="card-title"><a href={{ url('/catalogue/'.$vehicle->id) }}> {{ $vehicle->brand }}
+                                {{ $vehicle->model }} {{ $vehicle->version }} </a></h5>
                         <hr>
                         <div class="d-flex justify-content-between">
                             <span style="font-size: 20px; color: #B81111">{{ $vehicle->distance }} km</span><span
@@ -273,6 +289,7 @@
 
     </div>
 </div>
+
 <div id="fourthContent" class="d-flex justify-content-center align-items-center">
 
     <div data-aos="fade-up">
@@ -281,14 +298,23 @@
     </div>
 </div>
 
-<div id="fifthContent">
 
-    Retrouvez-nous aussi sur : 
 
-</div>
 
 
 <div id="map">
+
+</div>
+<div id="fifthContent" class="py-4" style="text-align: center;">
+
+    <span>Retrouvez-nous aussi sur :<span>
+
+            <div class="mt-3">
+                <a href="https://www.facebook.com/Automobiles-Grand-Est-1453452848057353/" target=_blank><img src="/img/facebook.png"
+                        alt="" class="img-fluid mr-5"></a> <a href="https://www.leboncoin.fr/boutique/71099" target=_blank><img
+                        src="/img/leboncoin.png" alt="" class="img-fluid"></a>
+
+            </div>
 
 </div>
 

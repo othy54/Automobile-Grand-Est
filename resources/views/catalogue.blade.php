@@ -32,6 +32,10 @@
     hr {
         width: 80%;
     }
+
+    a {
+        text-decoration: none !important;
+    }
 </style>
 
 @stop
@@ -47,7 +51,7 @@
 
 <div class="container mt-5">
     <div class="row justify-content-center ">
-        <div style="width: 90%" id="cardSearch">
+        <div style="width: 90%" id="cardSearch" data-aos="flip-left">
             <form action=" {{ url('/catalogue/search') }} " method="post" class="d-flex flex-wrap justify-content-center align-items-end">
                 {{ csrf_field() }}
                 <div class="col-4">
@@ -138,15 +142,15 @@
 
         @foreach($vehicles as $index => $vehicle)
 
-        <div class="card" style="">
+        <div class="card" style="" data-aos="fade-up">
 
             <div class="row no-gutters">
                 <div class="col-4">
-                    <img src="/uploads/{{ $images[$index]->imageName }} " alt="" class="card-img-top img-fluid">
+                        <a href= {{ url('/catalogue/'.$vehicle->id) }} ><img src="/uploads/{{ $images[$index]->imageName }} " alt="" class="card-img-top img-fluid"></a>
 
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title" style=""> {{ $vehicle->brand }} {{ $vehicle->model }} {{ $vehicle->version }}
+                    <h4 class="card-title" style=""><a href= {{ url('/catalogue/'.$vehicle->id) }} > {{ $vehicle->brand }} {{ $vehicle->model }} {{ $vehicle->version }}</a>
                     </h4>
                     <hr style="width: 100%">
                     <h5> Boite {{ $vehicle->boite }} </h5>
