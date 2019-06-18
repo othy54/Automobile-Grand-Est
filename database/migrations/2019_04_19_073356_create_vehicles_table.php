@@ -26,7 +26,9 @@ class CreateVehiclesTable extends Migration
             $table->enum('boite', ['Automatique', 'Semi-Automatique', 'Sequentielle', 'Manuelle'])->nullable();
             $table->enum('fuel', ['Essence', 'Diesel', 'Electrique', 'Hybride'])->nullable();
             $table->integer('place')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('option')->nullable();
+            $table->tinyInteger('sold')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

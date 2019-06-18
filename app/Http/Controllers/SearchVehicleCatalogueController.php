@@ -14,8 +14,8 @@ class SearchVehicleCatalogueController extends Controller
         
 
         $brands = DB::table('vehicles')->select('brand')->distinct()->get();
-        $vehicles = DB::table('vehicles')->orderBy('created_at', 'desc')->get();
-        $images = DB::table('images')->orderBy('created_at', 'desc')->select('imageName', 'vehicles_id')->where('imageNumber', '1')->get();
+        $vehicles = DB::table('vehicles')->orderBy('id', 'desc')->get();
+        $images = DB::table('images')->orderBy('vehicles_id', 'desc')->select('imageName', 'vehicles_id')->where('imageNumber', '1')->get();
         
         
 
@@ -67,7 +67,7 @@ class SearchVehicleCatalogueController extends Controller
         
 
         $brands = DB::table('vehicles')->select('brand')->distinct()->get();
-        $images = $query->join('images', 'images.vehicles_id', '=', 'vehicles.id')->select('images.*')->orderBy('created_at', 'desc')->where('imageNumber','1')->get();
+        $images = $query->join('images', 'images.vehicles_id', '=', 'vehicles.id')->select('images.*')->orderBy('vehicles_id', 'desc')->where('imageNumber','1')->get();
 
 
 

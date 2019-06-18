@@ -10,14 +10,6 @@ class SearchVehicleController extends Controller
 
 {
 
-    public function index() {
-        return 'yeah';
-
-    }
-
-
-
-
     public function search() {
 
 

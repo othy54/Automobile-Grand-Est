@@ -7,12 +7,11 @@ use Illuminate\Support\Facades\DB;
 use App\Vehicles;
 use App\Images;
 
-class AddVehicleController extends Controller
+class UpdateVehicleController extends Controller
 {
-    protected function add() {
+    protected function update() {
 
-        if(request()->hasFile('image')) { 
-
+        
 
         $brandVehicle = request('brand');
         $modelVehicle = request('model');
@@ -27,10 +26,9 @@ class AddVehicleController extends Controller
         $placeVehicle = request('place');
         $optionVehicle = request('option');
         $descriptionVehicle = request('description');
+        $id = request('id');
 
-        
-
-        $catalogue = Vehicles::create([
+        $catalogue = DB::table('vehicles')->where('id', $id)->update([
 
             'brand' => $brandVehicle,
             'model' => $modelVehicle,
@@ -47,8 +45,12 @@ class AddVehicleController extends Controller
             'description' => $descriptionVehicle,
             
         ]);
-
         
+
+        if(request()->hasFile('image')) { 
+        $delete = DB::table('images')->where('vehicles_id', $id)->delete();
+        
+
         $files = request()->file('image');
         
 
@@ -68,26 +70,20 @@ class AddVehicleController extends Controller
 
         $file->move(public_path('uploads'), $imageName);
 
-        $id = DB::table('vehicles')->latest('id')->first();
 
         $images = Images::create([
             
-            'vehicles_id' => $id->id,
+            'vehicles_id' => $id,
             'imageName' => $imageName,
             'imageNumber' => $number
 
         ]);
-        
         $number++;
         
         }
-    }else {
+    } 
 
-        return 'no images';
-    } ;
-
-        return back();
-
-     }
+    return redirect()->route('catalogueBack');
+    } 
 
 }

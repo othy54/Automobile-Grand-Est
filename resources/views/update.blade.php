@@ -16,7 +16,6 @@
 
     a {
         text-decoration: none !important;
-
     }
 </style>
 
@@ -45,18 +44,8 @@
                     data-parent="#accordionExample">
                     <div class="card-body">
 
-                        <label for="immatriculation">Plaque d'immatriculation : </label>
-                        <input id="siv" type="text" name="immatriculation" class="" style="width: 15%;">
 
-                        <button class="btn btn-primary mr-4" id="searchVehicle"> Chercher </button>
-
-                        <div id="loadingSpinner" class="spinner-border" style="display:none" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-
-                        <br><br>
-
-                        <form action=" {{ url('/home/catalogue') }} " method="post" enctype="multipart/form-data"
+                        <form action=" {{ url('/home/catalogue/update') }} " method="post" enctype="multipart/form-data"
                             class="form-group d-flex flex-wrap dropzone">
                             @csrf
 
@@ -72,30 +61,35 @@
 
                             <div class="col-6 mt-4">
                                 <label for="brand">Marque</label>
-                                <input id="brandVehicle" type="text" name="brand" class="form-control champs">
+                                <input id="brandVehicle" type="text" name="brand" class="form-control champs"
+                                    value="{{ $vehicle[0]->brand }}">
                             </div>
 
 
                             <div class="col-6 mt-4">
                                 <label for="model">Modèle</label>
-                                <input id="modelVehicle" type="text" name="model" class="form-control champs">
+                                <input id="modelVehicle" type="text" name="model" class="form-control champs"
+                                    value="{{ $vehicle[0]->model }}">
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="version">Version</label>
-                                <input id="versionVehicle" type="text" name="version" class="form-control champs">
+                                <input id="versionVehicle" type="text" name="version" class="form-control champs"
+                                    value="{{ $vehicle[0]->version }}">
                             </div>
 
 
                             <div class="col-6 mt-4">
                                 <label for="door">Nombre de portes</label>
-                                <input id="doorVehicle" type="number" name="door" class="form-control champs">
+                                <input id="doorVehicle" type="number" name="door" class="form-control champs"
+                                    value="{{ $vehicle[0]->door }}">
                             </div>
 
 
                             <div class="col-6 mt-4">
                                 <label for="power">Puissance (cv)</label>
-                                <input id="powerVehicle" type="number" name="power" class="form-control champs">
+                                <input id="powerVehicle" type="number" name="power" class="form-control champs"
+                                    value="{{ $vehicle[0]->power }}">
                             </div>
 
                             <div class="col-6 mt-4">
@@ -114,17 +108,20 @@
 
                             <div class="col-6 mt-4">
                                 <label for="distance">Distance parcourue (km) </label>
-                                <input type="number" name="distance" class="form-control champs">
+                                <input type="number" name="distance" class="form-control champs"
+                                    value="{{ $vehicle[0]->distance }}">
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="price">Prix</label>
-                                <input type="number" name="price" class="form-control champs">
+                                <input type="number" name="price" class="form-control champs"
+                                    value="{{ $vehicle[0]->price }}">
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="date">Date de mise en circulation</label>
-                                <input id="dateVehicle" type="date" name="date" class="form-control champs">
+                                <input id="dateVehicle" type="date" name="date" class="form-control champs"
+                                    value="{{ $vehicle[0]->date }}">
                             </div>
 
                             <div class="col-6 mt-4">
@@ -139,7 +136,8 @@
 
                             <div class="col-6 mt-4">
                                 <label for="place">Nombre de place</label>
-                                <input id="placeVehicle" type="number" name="place" class="form-control champs">
+                                <input id="placeVehicle" type="number" name="place" class="form-control champs"
+                                    value="{{ $vehicle[0]->place }}">
                             </div>
 
                             <div class="col-12 mt-4 checkboxis" id="myOptions">
@@ -154,89 +152,50 @@
 
                             </div>
 
-
-                            <div class="col-12 mt-4" hidden>
-                                <label for="description">Description</label>
-                                <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
-                                    name="description" rows="10" class="form-control"></textarea>
-                            </div>
-
                             <div class="col-12 mt-4">
                                 <div id="hereOption">
                                 </div>
                             </div>
 
 
-                            <div class="col-12 mt-4" >
-                                <label for="description">Description</label>
+                            <div class="col-12 mt-4" hidden>
+                                <label for="">Options</label>
                                 <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
-                                    name="option" rows="10" class="form-control"></textarea>
+                                    name="option" rows="10"
+                                    class="form-control">{{ $vehicle[0]->option."\n" }}</textarea>
                             </div>
 
-                            
+                            <div class="col-12 mt-4">
+                                <label for="description">Description</label>
+                                <textarea style="white-space: pre-line; position:relative; z-index: 55"
+                                    name="description" rows="10"
+                                    class="form-control">{{ $vehicle[0]->description."\n" }}</textarea>
+                            </div>
+
+
+
+                            <input type="text" name="id" value="{{ $vehicle[0]->id }}" hidden>
+
 
 
                             <div class="col-12 mt-4 text-right">
-                                <button class="btn btn-primary">Ajouter</button>
-
+                                <button class="btn btn-primary">Modifier</button>
                             </div>
+
+
                         </form>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            Liste des véhicules
-                        </button>
-                    </h2>
-                </div>
-
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
-                    data-parent="#accordionExample">
-                    @foreach($vehicles as $index => $vehicle)
-                    <div class="card-body">
-                        <div class="row">
-
-                            <div class="col-2">
-                                <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="image-fluid"
-                                    style="width: 100%;">
-                            </div>
-                            <div class="col-8">
-                                <h2><a href=" {{ url('/catalogue/'.$vehicle->id) }} ">{{ $vehicle->brand }}
-                                        {{ $vehicle->model }} {{ $vehicle->version }}</a></h2>
-                                <span> {{ $vehicle->power }} cv</span><br>
-                                <span> {{ $vehicle->price }} €</span><br>
-                                <span> {{ $vehicle->distance }} km</span><br>
-                            </div>
-                            <div class="col-2">
-                                <a href="{{ url('/home/catalogue/update/'.$vehicle->id) }}"><button
-                                        class="btn btn-light" value="{{ $vehicle->id }}" id="btnToUpdate"> Modifier
-                                    </button></a>
-
-                            </div>
-
+                        <div class="col-12 mt-4 text-right">
+                            <a href="{{ url('/home/catalogue/delete/'.$vehicle[0]->id) }}"
+                                onclick="return confirm('Supprimer définitivement ce produit ?')"><button
+                                    class="btn btn-danger"> Supprimer</button> </a>
                         </div>
 
-                    </div>
-                    <hr>
-                    @endforeach
 
+                    </div>
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
-
-
-
 </div>
 
 @stop
@@ -246,48 +205,32 @@
 
 <script>
     $(document).ready(function() {
-
-        
         var tab = ["Commandes au volant","Antidémarrage","ABS","Bluetooth","Régulateur/Limiteur de vitesse","ESP","Ordinateur de bord","Radar de recul","Essuie glace automatique","Direction assistée","AUX","USB","Isofix","GPS","Climatiseur","Clim bi-zone","Chargeur 6 CD","Banquette 2/3 1/3","Démarrage sans clé","Démarrage en côté","4x4","4x2","Système DVD","Siège chauffant","Siège refroidissement","Siège electrique","Siège massant","Vitres avants automatiques","Vitres arrières automatiques","MP3","Affichage tête haute","GPS indicatif","Aide au stationnement avant","Aide au stationnement arrière","Park assist","Anti-franchissement de ligne","Anti-collision","Vision nocturne","Caméra de recul","Caméra 360","Téléphone","Chargeur induction","Boite à gants réfrigéré","Centralisation automatique","Plein phare automatique","Xénon","Anti-brouillard avant","Attelage"].sort();
         for(var i = 0; i < tab.length; i++) {
             $('#myOptions').append('<div class="pretty p-default col-3"><input type="checkbox" class="myChecked" value="'+tab[i]+'" /><div class="state p-danger"><label>'+tab[i]+'</label></div></div>')
         }
 
+        var desc = $('#myTextArea').text().split('\n');
     
-        $('#searchVehicle ').on('click', function () {
-            $('#loadingSpinner').show();
+      
 
-            var siv = $('#siv').val();
+        for(var j = 0; j < desc.length; j++) {
+            if(!tab.includes(desc[j])) {
+                $('#myOptions').append('<div class="pretty p-default col-3"><input type="checkbox" class="myChecked" value="'+desc[j]+'" /><div class="state p-danger"><label>'+desc[j]+'</label></div></div>')
 
-            $.ajax({
-                headers: {'X-CSRF-Token': '{{ csrf_token() }}'},
-                method : 'POST',
-                url: '/home/catalogue/api',
-                data: {
-                    siv : siv 
-                },
-                
-                success: function(data){
-                    $('#loadingSpinner').hide();
-                    var jsonObj = JSON.parse($($.parseXML(data)).find("vehicleJson").text());
-                    $('#brandVehicle').val(jsonObj.CarMake.CurrentTextValue);
-                    $('#modelVehicle').val(jsonObj.CarModel.CurrentTextValue);
-                    $('#versionVehicle').val(jsonObj.ExtendedData.libVersion);
-                    $('#powerVehicle').val(jsonObj.ExtendedData.puissanceDyn);
-                    var dateVehicle = jsonObj.ExtendedData.datePremiereMiseCirculation;
-                    var year = dateVehicle.slice(4), month = dateVehicle.slice(2, 4), day = dateVehicle.slice(0, 2);
-                    $('#dateVehicle').val(year+'-'+month+'-'+day);
-                    $('#placeVehicle').val(jsonObj.ExtendedData.nbPlace);
+            }
+        }
 
-                    
-                    
-                },
-                error: function(data) {
-                    console.log(data)
-                }
-            });
+        var checkkkk = $('.myChecked');        
+        
 
-        });
+        for(var i = 0; i < $('.myChecked').length; i++) {
+            if(desc.includes(checkkkk[i].value)) {
+                checkkkk[i].checked = true;
+            }
+            
+        }
+
 
         $('.myChecked').on('change', function() {
             var optionText = $(this).val();
@@ -313,10 +256,12 @@
 
         })
 
-    
+        $('#btnToUpdate').on('click', function() {
+             var vehicleId = $(this).val();
+            
+        })
 
-        
-
+       
 })
 
 

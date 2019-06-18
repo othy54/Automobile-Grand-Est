@@ -11,9 +11,10 @@ class CatalogueController extends Controller
 {
     public function showMe() {
 
+        $query = DB::table('vehicles')->orderBy('id', 'desc');
+        $vehicles = $query->get(); 
 
-        $vehicles = DB::table('vehicles')->orderBy('id', 'desc')->get();
-        $images = DB::table('images')->orderBy('vehicles_id', 'desc')->select('imageName')->where('imageNumber', 1)->get();
+        $images = $query->join('images', 'images.vehicles_id', '=', 'vehicles.id')->select('images.*')->orderBy('vehicles_id', 'desc')->where('imageNumber','1')->get();
 
         if(Auth::check()){
 
@@ -25,13 +26,10 @@ class CatalogueController extends Controller
             
         ]);
 
-        // print_r($images);
-
-
 
         }else{
             
-            return view('welcome');
+            return redirect()->route('mainPage');
 
         }
 

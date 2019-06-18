@@ -46,6 +46,12 @@
         font-weight: bold
     }
 
+    #secondContent h2 {
+        font-size: 1.5vw;
+    }
+
+
+
     #cardSearch {
         background-color: whitesmoke;
         padding: 30px;
@@ -117,6 +123,8 @@
 </style>
 
 @stop @section('content')
+
+
 
 <div class="bd-example" style="padding-top: 25px;">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -276,8 +284,8 @@
                                 {{ $vehicle->model }} {{ $vehicle->version }} </a></h5>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <span style="font-size: 20px; color: #B81111">{{ $vehicle->distance }} km</span><span
-                                style="font-size: 20px; color: #B81111">{{ $vehicle->price }} €</span>
+                            <span style="font-size: 20px; color: #B81111">{{ number_format($vehicle->distance, 0, '.',' ') }} km</span><span
+                                style="font-size: 20px; color: #B81111">{{ number_format($vehicle->price, 0, '.',' ') }} €</span>
                         </div>
 
                     </div>
@@ -296,7 +304,7 @@
 <div id="fourthContent" class="d-flex justify-content-center align-items-center">
 
     <div data-aos="fade-up">
-        <h3 style="font-size: 2.3vw">Intéressé par un véhicule ou un service ?</h3>
+        <h3 style="font-size: 2.3vw">Intéressés par un véhicule ou un service ?</h3>
         <span style="font-size: 1.5vw">Prenez rendez-vous ici</span>
     </div>
 </div>
@@ -326,6 +334,7 @@
 
 
 <script>
+
     var map;
 
     function initMap() {

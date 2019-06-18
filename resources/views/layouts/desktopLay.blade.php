@@ -39,7 +39,7 @@
             -webkit-box-shadow: 0px -2px 21px -2px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: 0px -2px 21px -2px rgba(0, 0, 0, 0.75);
             box-shadow: 0px -2px 21px -2px rgba(0, 0, 0, 0.75);
-            z-index: 9999;
+            z-index: 9000;
             background-color: white;
         }
         
@@ -110,8 +110,9 @@
             <div id="menu" class="d-flex align-items-center">
                 <a href=" {{ url('/') }} ">Accueil</a>
                 <a href=" {{ url('/catalogue') }} ">Catalogue</a>
-                <a href="">Reprise</a>
-                <a href="">L'entreprise</a>
+                <a href=" {{ url('/reprise') }} ">Reprise</a>
+                <a href=" {{ url('/prestations') }} ">Prestations</a>
+                <a href=" {{ url('/a-propos') }} ">L'entreprise</a>
                 <a href="#contactMe">Contact</a>
             </div>
 

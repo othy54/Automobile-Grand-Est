@@ -158,10 +158,10 @@
                     <h5> {{ $vehicle->fuel }} </h5>
                     <hr style="width: 100%">
                     <h5 style="float:left; color: darkblue; font-weight: bold "><span class="thousands">
-                            {{ $vehicle->distance }}</span>
+                            {{ number_format($vehicle->distance, 0, '.',' ') }}</span>
                         km</h5>
                     <h5 style="float:right; color: #B81111; font-weight: bold"> <span
-                            class="thousands">{{ $vehicle->price }} <span>€
+                            class="thousands">{{ number_format($vehicle->price, 0, '.',' ') }} <span>€
                     </h5>
 
 
@@ -179,8 +179,12 @@
 
 
 
-    <div style="height: 50vh;">
+    <div style="background-color: #B81111; padding: 25px" class="d-flex justify-content-center align-items-center">
 
+        <div style="text-align: center; color: white">
+            <h2 style=" line-height: 30px; font-size: 2.2vw">Vous ne trouvez pas ce que vous cherchez ? </h2><br>
+        <h3 style="font-size: 1.7vw">Faites une recherche personnalisée  <a href="{{ url('/perso') }}" style="color: white;">>> ici << </a></h3>
+        </div>
 
     </div>
 
@@ -219,7 +223,7 @@
         })
 
         $('#moreCriteria').on('click', function() {
-            $('.hideSelect').toggle();
+            $('.hideSelect').slideToggle();
             if($('#moreCriteria').text() == "+ de critère") {
                 $('#moreCriteria').text("- de critère")
             }else{
