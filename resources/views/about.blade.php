@@ -22,13 +22,13 @@
         <p>Automobiles Grand Est est une entreprise familiale spécialisée dans l'achat et la vente de vehicules
             d'occasions toutes marques confondues.</p>
         <p>Localisée en Lorraine, Automobiles Grand Est vous livre votre véhicule dans toute la France.</p>
-        <p>Notre engagement est de vous fournir un service et un conseil adapté à vos besoins en fonction de votre
+        <p>Notre engagement est de vous fournir un service et un conseil adaptés à vos besoins en fonction de votre
             budget, ainsi qu'un service après vente pour toute autre attente.</p>
         <p>Automobiles Grand Est a commercialisé une multitude de voitures d'occasions et plus de 90% de nos clients se
             sont montrés tout à fait satisfaits de la commande à la livraison d'un véhicule.</p>
-        <p>Notre garage vous propose également la réalistion des cartes grises françaises, étrangères, et cartes
+        <p>Notre garage vous propose également la réalisation des cartes grises françaises, étrangères, et cartes
             provisoires afin de vous fournir un service complet.</p>
-        <p>Automobiles Grand Est est ouvert du lundi au samedi, nous sommes joignable par mail ou par téléphone et
+        <p>Automobiles Grand Est est ouvert du lundi au samedi, nous sommes joignables par mail ou par téléphone et
             restons à votres disposition pour toute information.</p>
             <br>
 

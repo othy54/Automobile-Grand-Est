@@ -55,7 +55,7 @@
     <br>
     <hr>
     <h2 style="font-size: 2vw; color: #B81111">Carte grise : </h2>
-    <span style="font-size: 1.5vw">Française : 20 €</span>
+    <span style="font-size: 1.5vw">Française : 20 €</span><br>
     <span style="font-size: 1.5vw">Etrangère : 40 €</span>
 
 
