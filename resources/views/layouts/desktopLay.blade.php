@@ -8,10 +8,10 @@
     <meta name="description"
         content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
-    <link rel="stylesheet" href="/assets/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/aos.css" />
-    <link rel="stylesheet" href="/assets/slick.min.css" />
-    <link rel="stylesheet" href="/assets/cookieconsent.min.css" />
+    <link rel="stylesheet" href="/assets/bootstrap.min.css" defer>
+    <link rel="stylesheet" href="/assets/aos.css">
+    <link rel="stylesheet" href="/assets/slick.min.css" async defer>
+    <link rel="stylesheet" href="/assets/cookieconsent.min.css" defer/>
 
 
 
@@ -215,7 +215,7 @@
 
     <script src="/assets/jquery-3.3.1.min.js"></script>
     <script src="/assets/popper.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
     <script src="/assets/aos.js"></script>
     <script src="/assets/slick.min.js"></script>
     <script src="/assets/lozad.min.js"></script>

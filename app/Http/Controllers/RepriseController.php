@@ -27,9 +27,8 @@ class RepriseController extends Controller
 
     protected function sendMail(RepriseRequest $request) {
 
-        $mail = env('MAIL_FROM_ADDRESS');
 
-        Mail::to($mail)->send(new RepriseMail($request));
+        Mail::to('contact@automobilegrandest.fr')->send(new RepriseMail($request));
 
         return back()->with('message2', 'Message envoyé !');
 

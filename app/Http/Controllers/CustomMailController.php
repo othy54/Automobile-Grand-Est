@@ -11,9 +11,8 @@ class CustomMailController extends Controller
 {
     public function sendMail(CustomRequest $request) {
 
-        $mail = env('MAIL_FROM_ADDRESS');
 
-        Mail::to($mail)->send(new CustomMail($request));
+        Mail::to('contact@automobilegrandest.fr')->send(new CustomMail($request));
 
         return back()->with('message2', 'Message envoyé !');
 

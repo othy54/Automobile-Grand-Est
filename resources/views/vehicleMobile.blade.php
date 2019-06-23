@@ -153,30 +153,6 @@
 <script>
     $(document).ready(function() {
 
-        // $('#expand').on('click', function() {
-        //     if($(this).text() == "+") {
-        //         $(this).text("-")
-        //     }else{
-        //         $(this).text("+") 
-        //     }
-        //     $('#allOptions').slideToggle('slow');
-        // })
-
-        // $('img').on('touchstart click', function () {
-        //     $('#filter').show();
-        //     $(this).css({transform: 'scale(1.7)', transition: '0.3s', zIndex: '900'})
-        //     $('nav').css('z-index', '0')
-        // },
-
-        // function() {
-        //     $('#filter').hide();
-        //     $(this).css({transform: 'scale(1)', transition: '0.3s', zIndex: '500'})
-        //     $('nav').css('z-index', '9000')
-        // })
-
-        
-
-
         $('.slider-for').slick({
             slidesToShow: 1,
             slidesToScroll: 1,

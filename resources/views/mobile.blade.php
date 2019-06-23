@@ -244,7 +244,7 @@
         <div class="mySliders d-flex justify-content-center align-items-center">
           @foreach($vehicles as $index => $vehicle)
           <div class="card" style="background-color: whitesmoke; width: fit-content">
-            <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard" style="width: 100%">
+            <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard">
             <div class="card-body">
               <h5 class="card-title text-center"><a href={{ url('/catalogue/'.$vehicle->id) }}> {{ $vehicle->brand }}
                   {{ $vehicle->model }} {{ $vehicle->version }} </a></h5>
@@ -340,7 +340,6 @@ function initMap() {
                 },
                 success: function(data) {
                     data = JSON.parse(data)
-                    console.log(data)
                     $('#modelSelected').html('<option></option>');
                     $.each(data, function(i, val) {
 
@@ -352,7 +351,7 @@ function initMap() {
         })
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API') }}&callback=initMap" async
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXEm7b72ypHVBS-nio-qX9715xxB8IrSU&callback=initMap" async
   defer></script>
 
 @endsection

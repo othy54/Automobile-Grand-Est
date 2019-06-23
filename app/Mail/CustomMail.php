@@ -31,6 +31,7 @@ class CustomMail extends Mailable
     public function build()
     {
         return $this->view('emails.custom')
-                    ->subject('Recherche personnalisée');
+                    ->subject('Recherche personnalisée')
+                    ->from($this->request['email']);
     }
 }

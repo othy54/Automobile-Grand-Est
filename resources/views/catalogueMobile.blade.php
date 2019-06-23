@@ -211,7 +211,6 @@ $('#brandSelected').on('change', function() {
         data: { brand: brand },
         success: function(data) {
             data = JSON.parse(data)
-            console.log(data)
             $('#modelSelected').html('<option></option>');
             $.each(data, function(i, val) {
 
