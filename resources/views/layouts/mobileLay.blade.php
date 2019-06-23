@@ -2,34 +2,39 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Automobile Grand-Est</title>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automobiles Grand-Est - Achat & Vente de voitures à Lunéville</title>
+  <meta name="description"
+    content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/animate.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
 </head>
 
 <body>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Montserrat', sans-serif;
+      font-display: fallback;
+
     }
 
-    nav {
-      
-    }
+    nav {}
 
     #navBar {
       height: fit-content;
       width: 100%;
       position: fixed;
-      z-index: 1;
+      z-index: 3;
       background-color: white;
       -webkit-box-shadow: 0px -2px 21px -2px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px -2px 21px -2px rgba(0, 0, 0, 0.75);
@@ -39,13 +44,13 @@
 
 
     #logo {
-      width: 48%;
+      width: 24vh;
       display: block;
       margin: auto;
     }
 
     #menuB {
-      width: 9%;
+      width: 4.8vh;
       display: block;
       position: absolute;
       margin-left: 1em;
@@ -60,7 +65,7 @@
       position: fixed;
       background-color: white;
       height: 100vh;
-      z-index: 3;
+      z-index: 5;
       width: 0;
       transition: 0.4s;
       overflow: hidden;
@@ -80,7 +85,7 @@
 
     #filter {
       background-color: rgba(0, 0, 0, 0.5);
-      z-index: 2;
+      z-index: 4;
       height: 100%;
       width: 100%;
       position: fixed;
@@ -90,9 +95,9 @@
 
     #footerContact {
 
-      background-color: #585858;
-      padding: 40px;
+      background-image: url('/img/fond.jpg');
       color: white;
+
 
     }
 
@@ -103,6 +108,29 @@
 
     h4 {
       font-size: 35px;
+    }
+
+    #contactMe input {
+
+      margin-bottom: 15px;
+
+    }
+
+    #contactMe button {
+      margin-top: 20px;
+      color: white;
+      border: 1px solid white;
+      background-color: transparent;
+      margin-top: 1vh;
+      padding: 5px;
+      float: right;
+      font-size: 2vh
+    }
+
+    #miniFooter a {
+      text-align: right;
+      color: gray;
+      text-decoration: none;
     }
   </style>
 
@@ -118,10 +146,10 @@
     <div class="d-flex flex-column justify-content-start " style="height : 100%;">
 
       <a href=" {{ url('/') }} ">Accueil</a>
-      <a href="">Catalogue</a>
-      <a href="">Devis</a>
-      <a href="">Reprise</a>
-      <a href="">L'entreprise</a>
+      <a href=" {{ route('cataloguePage') }} ">Catalogue</a>
+      <a href=" {{ route('reprisePage') }} ">Reprise</a>
+      <a href="">Tarifs</a>
+      <a href=" {{ url('/a-propos') }} ">L'entreprise</a>
 
     </div>
   </div>
@@ -129,9 +157,9 @@
   <div id="navBar">
     <nav>
       <a href="JavaScript:void(0);">
-        <img class="img-fluid" id="menuB" src="img/menuK.png" alt="">
+        <img class="img-fluid" id="menuB" src="/img/menuK.png" alt="">
       </a>
-      <img class="img-fluid" id="logo" src='img/Logo.png' alt="Garage Luneville">
+      <img class="img-fluid" id="logo" src='/img/Logo.png' alt="vente achat voiture à lunéville">
     </nav>
   </div>
 
@@ -139,51 +167,69 @@
 
 
 
-  <div id="footerContact">
-
-    <h4>Contact</h4>
-    <br>
-    <div>
-
-      <span>Tél : 09 84 58 04 23</span><br>
-      <span>Tél : 06 45 31 84 39</span><br>
-      <span>Tél : 06 18 24 37 75</span><br>
-
+  <div id="footerContact" class="d-flex" data-aos="fade-up">
+    <div class="col-6" style="padding-top: 50px; padding-bottom: 50px ; padding-left: 40px; height: 50%;">
+      <div style="font-size: 5vw; font-weight:bold">
+        CONTACT
+      </div>
+      <div style="font-size: 3.5vw; color: #B81111; font-weight:bold" class="my-4">
+        Téléphone
+      </div>
+      <div>
+        09 84 58 04 23 <br> 06 45 31 84 39 <br> 06 18 24 37 75 <br>
+      </div>
+      <div style="font-size: 3.5vw; color: #B81111; font-weight:bold" class="my-4">
+        Adresse
+      </div>
+      <div>
+        Chemin de la ville <br> 54300 Hériménil
+      </div>
     </div>
-    <br>
-    <br>
-    <h4>Adresse</h4>
-    <br>
 
-    <p>Chemin de la ville <br> 54300 Hériménil</p>
-
-    <br>
-    <br>
-
-    <h4>Localisation</h4>
-    <br>
-
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d660.0016718206159!2d6.48633694805958!3d48.57142071630071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794805151917ca1%3A0xc676d6a73780dfbd!2sChemin+de+la+ville%2C+54300+H%C3%A9rim%C3%A9nil!5e0!3m2!1sfr!2sfr!4v1558897118101!5m2!1sfr!2sfr"
-      width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-    <br><br>
-    <h4>Formulaire de contact</h4>
-    <br>
-
-    <form action="" ">
-
-        <input type=" text" class="form-control" placeholder="Nom"> <br>
-      <input type="mail" class="form-control" placeholder="Email"> <br>
-      <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Message..."></textarea> <br>
-      <button
-        style="background-color: transparent; color: white; height: 40px; border: 1px solid white; float:right; border-radius: 3px;">Envoyer</button>
-      <br>
-
-    </form>
-
-
+    <div class="d-flex flex-column col-6" style=" padding-top: 50px;padding-left: 30px; height: 50%">
+      <div style="font-size: 5vw; font-weight:bold">
+        HORAIRES
+      </div>
+      <div style="font-size: 3.5vw; color: #B81111; font-weight:bold" class="my-4">
+        Lundi - Vendredi
+      </div>
+      <div>
+        09h00 - 12h00 <br> 14h00 - 19h00
+      </div>
+      <div style="font-size: 3.5vw; color: #B81111; font-weight:bold" class="my-4">
+        Samedi
+      </div>
+      <div>
+        09h00 - 19h00
+      </div>
+    </div>
   </div>
+  <div style="background-color: #B81111; color: white" id="contactMe" class="d-flex justify-content-center pt-3"
+    data-aos="fade-up">
+    <div style="width: 70%;" class="d-flex flex-column justify-content-center">
+      <span style="font-size: 5vw">Formulaire de contact</span>
+      <form method="POST" action=" {{ url('/contact') }} " class="form-group pt-3">
+        {{ csrf_field() }}
+
+
+        <input id="nameForm" name='name' type="text" placeholder="Nom" class="form-control" required>
+        <input id="emailForm" name='email' type="mail" placeholder="Mail" class="form-control" required>
+        <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control">
+        <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30" style="height: 20vh"
+          class="form-control"></textarea>
+        <button type="submit">Envoyer</button> @if(session()->has('message'))
+        <div class="alert alert-success" style="width: 50%">
+          {{ session()->get('message') }}
+        </div>
+        @endif
+      </form>
+    </div>
+  </div>
+  <div style="color: gray; text-align: center; background-color: #15171c" class="container" id="miniFooter">
+    Réalisation <strong> <a href="https://othman-bensaoula.com"> Othman Bensaoula </a> </strong> | 2019 <a
+      href="mentions"> Mentions Légales </a>| <strong>Automobiles Grand Est</strong>
+  </div>
+
 
 
   <!-- Optional JavaScript -->
@@ -196,8 +242,33 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+
+
+  @yield('script')
 
   <script>
+    const el = document.querySelector('img');
+    const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
+    observer.observe();
+
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+    "palette": {
+        "popup": {
+        "background": "#000"
+        },
+        "button": {
+        "background": "#f1d600"
+        }
+    },
+    "theme": "classic"
+    })});
+
     $('#menuB').on('click', function() {
       $('.sidebar').css({ width: '65%'});
       $('#filter').css('display', 'block');
@@ -210,6 +281,10 @@
       },330)
       
     })
+
+    AOS.init({
+      once: true,
+    });
 
 
 

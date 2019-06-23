@@ -11,8 +11,6 @@ class UpdateVehicleController extends Controller
 {
     protected function update() {
 
-        
-
         $brandVehicle = request('brand');
         $modelVehicle = request('model');
         $versionVehicle = request('version');

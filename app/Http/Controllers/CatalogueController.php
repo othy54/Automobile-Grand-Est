@@ -23,11 +23,9 @@ class CatalogueController extends Controller
             'vehicles' => $vehicles,
             'images' => $images,
             
-            
         ]);
 
-
-        }else{
+        } else {
             
             return redirect()->route('mainPage');
 

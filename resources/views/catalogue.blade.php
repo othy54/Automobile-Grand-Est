@@ -1,5 +1,4 @@
-@extends('layouts.desktopLay')
-
+@extends('layouts.desktopLay') 
 @section('style')
 
 <style>
@@ -38,10 +37,7 @@
     }
 </style>
 
-@stop
-
-
-
+@stop 
 @section('content')
 
 <div id="titlePage">
@@ -52,7 +48,8 @@
 <div class="container mt-5">
     <div class="row justify-content-center ">
         <div style="width: 90%" id="cardSearch" data-aos="flip-left">
-            <form action=" {{ url('/catalogue/search') }} " method="post" class="d-flex flex-wrap justify-content-center align-items-end">
+            <form action=" {{ url('/catalogue/search') }} " method="post"
+                class="d-flex flex-wrap justify-content-center align-items-end">
                 {{ csrf_field() }}
                 <div class="col-4">
                     <label for="brand">Marque</label> <select class="form-control mx-2" name="brand" id="brandSelected">
@@ -146,91 +143,82 @@
 
             <div class="row no-gutters">
                 <div class="col-4">
-                        <a href= {{ url('/catalogue/'.$vehicle->id) }} ><img src="/uploads/{{ $images[$index]->imageName }} " alt="" class="card-img-top img-fluid"></a>
-
+                    <a href={{ url( '/catalogue/'.$vehicle->id) }}><img src="/uploads/{{ $images[$index]->imageName }} "
+                            alt="" class="card-img-top img-fluid"></a>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title" style=""><a href= {{ url('/catalogue/'.$vehicle->id) }} > {{ $vehicle->brand }} {{ $vehicle->model }} {{ $vehicle->version }}</a>
+                    <h4 class="card-title" style=""><a href={{ url( '/catalogue/'.$vehicle->id) }}>
+                            {{ $vehicle->brand }}
+                            {{ $vehicle->model }} {{ $vehicle->version }}</a>
                     </h4>
                     <hr style="width: 100%">
-                    <h5> Boite {{ $vehicle->boite }} </h5>
+                    <h5> Boite {{ $vehicle->boite }}</h5>
                     <h5> {{ $vehicle->place }} places, {{ $vehicle->door }} portes </h5>
                     <h5> {{ $vehicle->fuel }} </h5>
                     <hr style="width: 100%">
                     <h5 style="float:left; color: darkblue; font-weight: bold "><span class="thousands">
-                            {{ number_format($vehicle->distance, 0, '.',' ') }}</span>
-                        km</h5>
+                            {{ number_format($vehicle->distance, 0, '.',' ') }}</span> km
+                    </h5>
                     <h5 style="float:right; color: #B81111; font-weight: bold"> <span
                             class="thousands">{{ number_format($vehicle->price, 0, '.',' ') }} <span>€
                     </h5>
-
-
-
                 </div>
             </div>
 
         </div>
         <hr>
 
-
         @endforeach
 
     </div>
-
-
 
     <div style="background-color: #B81111; padding: 25px" class="d-flex justify-content-center align-items-center">
 
         <div style="text-align: center; color: white">
             <h2 style=" line-height: 30px; font-size: 2.2vw">Vous ne trouvez pas ce que vous cherchez ? </h2><br>
-        <h3 style="font-size: 1.7vw">Faites une recherche personnalisée  <a href="{{ url('/perso') }}" style="color: white;">>> ici << </a></h3>
-        </div>
+            <h3 style="font-size: 1.7vw">Faites une recherche personnalisée <a href="{{ url('/perso') }}"
+                    style="color: white;">>> ici << </a> 
+            </h3> 
+        </div>         
+    </div> 
+</div> 
+@stop 
 
-    </div>
-
-</div>
-
-
-@stop
-
-
-
-@section('script')
+@section('script') 
 
 <script>
-    $('#brandSelected').on('change', function() {
-            var brand = $('#brandSelected option:selected').text();
-            $.ajax({
-                headers: {
-                    'X-CSRF-Token': '{{ csrf_token() }}'
-                },
-                method: 'post',
-                url: '/search',
-                data: {
-                    brand: brand
-                },
-                success: function(data) {
-                    data = JSON.parse(data)
-                    console.log(data)
-                    $('#modelSelected').html('<option></option>');
-                    $.each(data, function(i, val) {
 
-                        $('#modelSelected').append('<option>' + val.model + '</option>')
-                    })
+$('#brandSelected').on('change', function() {
 
-                }
-            });
-        })
+    var brand = $('#brandSelected option:selected').text();
+    $.ajax({
+        headers: { 'X-CSRF-Token': '{{ csrf_token() }}' },
+        method: 'post',
+        url: '/search',
+        data: { brand: brand },
+        success: function(data) {
+            data = JSON.parse(data)
+            console.log(data)
+            $('#modelSelected').html('<option></option>');
+            $.each(data, function(i, val) {
 
-        $('#moreCriteria').on('click', function() {
-            $('.hideSelect').slideToggle();
-            if($('#moreCriteria').text() == "+ de critère") {
-                $('#moreCriteria').text("- de critère")
-            }else{
-                $('#moreCriteria').text("+ de critère") 
-            }
+             $('#modelSelected').append('<option>' + val.model + '</option>')
+            })
 
-        })
+        }
+    });
+})
+
+$('#moreCriteria').on('click', function() {
+    $('.hideSelect').slideToggle();
+
+    if($('#moreCriteria').text() == "+ de critère") {
+     $('#moreCriteria').text("- de critère")
+    }else{
+     $('#moreCriteria').text("+ de critère")
+    }
+
+})
 
 
 

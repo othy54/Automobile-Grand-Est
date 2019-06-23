@@ -156,9 +156,9 @@
 
 
                             <div class="col-12 mt-4" hidden>
-                                <label for="description">Description</label>
+                                <label for="description">option</label>
                                 <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
-                                    name="description" rows="10" class="form-control"></textarea>
+                                    name="option" rows="10" class="form-control"></textarea>
                             </div>
 
                             <div class="col-12 mt-4">
@@ -170,7 +170,7 @@
                             <div class="col-12 mt-4" >
                                 <label for="description">Description</label>
                                 <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
-                                    name="option" rows="10" class="form-control"></textarea>
+                                    name="description" rows="10" class="form-control"></textarea>
                             </div>
 
                             
@@ -247,13 +247,11 @@
 <script>
     $(document).ready(function() {
 
-        
         var tab = ["Commandes au volant","Antidémarrage","ABS","Bluetooth","Régulateur/Limiteur de vitesse","ESP","Ordinateur de bord","Radar de recul","Essuie glace automatique","Direction assistée","AUX","USB","Isofix","GPS","Climatiseur","Clim bi-zone","Chargeur 6 CD","Banquette 2/3 1/3","Démarrage sans clé","Démarrage en côté","4x4","4x2","Système DVD","Siège chauffant","Siège refroidissement","Siège electrique","Siège massant","Vitres avants automatiques","Vitres arrières automatiques","MP3","Affichage tête haute","GPS indicatif","Aide au stationnement avant","Aide au stationnement arrière","Park assist","Anti-franchissement de ligne","Anti-collision","Vision nocturne","Caméra de recul","Caméra 360","Téléphone","Chargeur induction","Boite à gants réfrigéré","Centralisation automatique","Plein phare automatique","Xénon","Anti-brouillard avant","Attelage"].sort();
         for(var i = 0; i < tab.length; i++) {
             $('#myOptions').append('<div class="pretty p-default col-3"><input type="checkbox" class="myChecked" value="'+tab[i]+'" /><div class="state p-danger"><label>'+tab[i]+'</label></div></div>')
         }
 
-    
         $('#searchVehicle ').on('click', function () {
             $('#loadingSpinner').show();
 
@@ -279,8 +277,6 @@
                     $('#dateVehicle').val(year+'-'+month+'-'+day);
                     $('#placeVehicle').val(jsonObj.ExtendedData.nbPlace);
 
-                    
-                    
                 },
                 error: function(data) {
                     console.log(data)

@@ -11,11 +11,11 @@ class CustomMailController extends Controller
 {
     public function sendMail(CustomRequest $request) {
 
+        $mail = env('MAIL_FROM_ADDRESS');
 
-        Mail::to('othman.bensaoula@gmail.com')->send(new CustomMail($request));
+        Mail::to($mail)->send(new CustomMail($request));
 
         return back()->with('message2', 'Message envoyé !');
 
-        
     }  
 }

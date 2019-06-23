@@ -12,14 +12,13 @@ class ContactController extends Controller
 
 {
 
-
     public function sendMail(ContactRequest $request) {
 
+        $mail = env('MAIL_FROM_ADDRESS');
 
-        Mail::to('othman.bensaoula@gmail.com')->send(new ContactMail($request));
+        Mail::to($mail)->send(new ContactMail($request));
 
         return back()->with('message', 'Message envoyé !');
 
-        
     }   
 }

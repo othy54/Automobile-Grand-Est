@@ -50,8 +50,6 @@
         font-size: 1.5vw;
     }
 
-
-
     #cardSearch {
         background-color: whitesmoke;
         padding: 30px;
@@ -85,8 +83,6 @@
 
     }
 
-
-
     .slick-arrow {
         margin: 20px;
         border-radius: 700px;
@@ -118,6 +114,10 @@
     #fifthContent img {
         width: 10%;
     }
+
+    #map {
+            height: 45vh;
+        }
 
     
 </style>
@@ -305,17 +305,14 @@
 
     <div data-aos="fade-up">
         <h3 style="font-size: 2.3vw">Intéressés par un véhicule ou un service ?</h3>
-        <span style="font-size: 1.5vw">Prenez rendez-vous ici</span>
+        <span style="font-size: 1.5vw">Contactez-nous</span>
     </div>
 </div>
-
-
-
-
 
 <div id="map">
 
 </div>
+
 <div id="fifthContent" class="py-4" style="text-align: center;">
 
     <span>Retrouvez-nous aussi sur :<span>

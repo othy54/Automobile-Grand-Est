@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Automobiles Grand-Est - Achat | Vente | Location & Nettoyage de voitures à Lunéville</title>
+    <title>Automobiles Grand-Est - Achat & Vente de voitures à Lunéville</title>
     <meta name="description" content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
     <!-- Fonts -->
@@ -23,10 +23,6 @@
             font-family: 'Montserrat', sans-serif;
             font-display: fallback;
             margin: 0
-        }
-        
-        #map {
-            height: 45vh;
         }
         
         #logo {
@@ -60,10 +56,10 @@
         
         #contactMe input,
         #contactMe textarea {
-            margin-top: 20px;
+            margin-top: 1vh;
         }
         
-        #contactMe p {
+        #contactMe span {
             color: white;
             font-size: 2vw;
             font-weight: 500;
@@ -73,9 +69,10 @@
             color: white;
             border: 1px solid white;
             background-color: transparent;
-            margin-top: 20px;
+            margin-top: 1vh;
             padding: 5px;
             float: right;
+            font-size: 2vh
         }
         
         #miniFooter {
@@ -111,7 +108,7 @@
                 <a href=" {{ url('/') }} ">Accueil</a>
                 <a href=" {{ url('/catalogue') }} ">Catalogue</a>
                 <a href=" {{ url('/reprise') }} ">Reprise</a>
-                <a href=" {{ url('/prestations') }} ">Prestations</a>
+                <a href=" {{ url('/prestations') }} ">Tarifs</a>
                 <a href=" {{ url('/a-propos') }} ">L'entreprise</a>
                 <a href="#contactMe">Contact</a>
             </div>
@@ -166,22 +163,21 @@
 
         <div style="width:50%;" id="contactMe" class="d-flex justify-content-center" data-aos="fade-up">
             <div style="width: 70%;" class="d-flex flex-column justify-content-center">
-                <p>Formulaire de contact</p>
-                <form method="POST" action=" {{ url('/contact') }} ">
+                <span>Formulaire de contact</span>
+                <form method="POST" action=" {{ url('/contact') }} " class="form-group">
                     {{ csrf_field() }}
 
+                    
                     <input id="nameForm" name='name' type="text" placeholder="Nom" class="form-control" required>
                     <input id="emailForm" name='email' type="mail" placeholder="Mail" class="form-control" required>
                     <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control">
-                    <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30" style="height: 30vh" class="form-control"></textarea>
                     <button type="submit">Envoyer</button> @if(session()->has('message'))
                     <div class="alert alert-success" style="width: 50%">
                         {{ session()->get('message') }}
                     </div>
                     @endif
                 </form>
-
-
             </div>
         </div>
 
