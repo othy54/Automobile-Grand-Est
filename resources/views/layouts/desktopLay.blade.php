@@ -5,30 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Automobiles Grand-Est - Achat & Vente de voitures à Lunéville</title>
-    <meta name="description" content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
+    <meta name="description"
+        content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/aos.css" />
+    <link rel="stylesheet" href="/assets/slick.min.css" />
+    <link rel="stylesheet" href="/assets/cookieconsent.min.css" />
 
 
 
 
     <!-- Styles -->
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url(/fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
             font-display: fallback;
-            margin: 0
         }
-        
+
+        body {
+            font-family: 'Montserrat', sans-serif
+        }
+
         #logo {
             margin-left: 10%;
         }
-        
+
         nav {
             width: 100%;
             position: fixed;
@@ -38,33 +44,33 @@
             z-index: 9000;
             background-color: white;
         }
-        
+
         #menu>a {
             color: #B81111;
             font-size: 1.3vw;
             margin-right: 30px;
         }
-        
+
         #menu>a:hover {
             text-decoration: none;
             border-bottom: 2px solid #B81111;
         }
-        
+
         #contactMe {
             background-color: #B81111;
         }
-        
+
         #contactMe input,
         #contactMe textarea {
             margin-top: 1vh;
         }
-        
+
         #contactMe span {
             color: white;
             font-size: 2vw;
             font-weight: 500;
         }
-        
+
         #contactMe button {
             color: white;
             border: 1px solid white;
@@ -74,20 +80,20 @@
             float: right;
             font-size: 2vh
         }
-        
+
         #miniFooter {
             background-color: #15171c;
             height: 40px;
             display: flex;
             justify-content: flex-end;
         }
-        
+
         #miniFooter a {
             text-align: right;
             color: gray;
             text-decoration: none;
         }
-        
+
         #info {
             background-image: url('/img/contact.jpg');
             background-size: cover;
@@ -167,11 +173,12 @@
                 <form method="POST" action=" {{ url('/contact') }} " class="form-group">
                     {{ csrf_field() }}
 
-                    
+
                     <input id="nameForm" name='name' type="text" placeholder="Nom" class="form-control" required>
                     <input id="emailForm" name='email' type="mail" placeholder="Mail" class="form-control" required>
                     <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control">
-                    <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30" style="height: 30vh" class="form-control"></textarea>
+                    <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30"
+                        style="height: 30vh" class="form-control"></textarea>
                     <button type="submit">Envoyer</button> @if(session()->has('message'))
                     <div class="alert alert-success" style="width: 50%">
                         {{ session()->get('message') }}
@@ -189,7 +196,8 @@
 
         <div class="d-flex justify-content-between align-items-center" style="width: 100%">
             <div style="color: gray; padding-left: 350px; ">
-                Réalisation <strong> <a href="https://othman-bensaoula.com"> Othman Bensaoula </a> </strong> | 2019 <a href="mentions"> Mentions Légales </a>| <strong>Automobiles Grand Est</strong>
+                Réalisation <strong> <a href="https://othman-bensaoula.com"> Othman Bensaoula </a> </strong> | 2019 <a
+                    href="mentions"> Mentions Légales </a>| <strong>Automobiles Grand Est</strong>
             </div>
             @if (Route::has('login'))
             <div style="padding-right: 60px">
@@ -205,25 +213,13 @@
 
     </div>
 
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" >
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" >
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" >
-    </script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js" ></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-
-
-
+    <script src="/assets/jquery-3.3.1.min.js"></script>
+    <script src="/assets/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/aos.js"></script>
+    <script src="/assets/slick.min.js"></script>
+    <script src="/assets/lozad.min.js"></script>
+    <script src="/assets/cookieconsent.min.js"></script>
 
     <script>
         const el = document.querySelector('img');

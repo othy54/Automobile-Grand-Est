@@ -9,24 +9,27 @@
     content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/aos.css" />
+    <link rel="stylesheet" href="/assets/slick.min.css" />
+    <link rel="stylesheet" href="/assets/cookieconsent.min.css" />
 
 </head>
 
 <body>
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      font-display: fallback;
+     @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url(/fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: fallback;
+        }
 
-    }
+        body {
+            font-family: 'Montserrat', sans-serif
+        }
 
     nav {}
 
@@ -148,7 +151,7 @@
       <a href=" {{ url('/') }} ">Accueil</a>
       <a href=" {{ route('cataloguePage') }} ">Catalogue</a>
       <a href=" {{ route('reprisePage') }} ">Reprise</a>
-      <a href="">Tarifs</a>
+      <a href=" {{ url('/prestations') }} ">Tarifs</a>
       <a href=" {{ url('/a-propos') }} ">L'entreprise</a>
 
     </div>
@@ -225,7 +228,7 @@
       </form>
     </div>
   </div>
-  <div style="color: gray; text-align: center; background-color: #15171c" class="container" id="miniFooter">
+  <div style="color: gray; text-align: center; background-color: #15171c" class="container py-3" id="miniFooter">
     Réalisation <strong> <a href="https://othman-bensaoula.com"> Othman Bensaoula </a> </strong> | 2019 <a
       href="mentions"> Mentions Légales </a>| <strong>Automobiles Grand Est</strong>
   </div>

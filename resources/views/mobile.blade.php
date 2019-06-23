@@ -352,7 +352,7 @@ function initMap() {
         })
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXEm7b72ypHVBS-nio-qX9715xxB8IrSU&callback=initMap" async
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API') }}&callback=initMap" async
   defer></script>
 
 @endsection
