@@ -73,7 +73,7 @@ Route::get('/catalogue/{id}', function($id) {
 
 Route::post('/catalogue/search', 'SearchVehicleCatalogueController@search');
 
-Auth::routes(['register'=>false]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

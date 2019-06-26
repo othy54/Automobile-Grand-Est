@@ -31,7 +31,7 @@
 
     }
 
-    .slider-for:hover {}
+    
 
     #titleVehicle h1 {
         text-align: center;
@@ -169,18 +169,10 @@
 
         </div>
         <hr>
-        <div>
-
-            
+        <div style="text-align: center; font-size: 30px">
+            Appelez le 06 45 31 84 39 pour ce véhicule
         </div>
-
-
-
     </div>
-
-
-
-
 </div>
 
 <div style="height: 30vh">
@@ -218,6 +210,9 @@
             $('nav').css('z-index', '9000')
         })
 
+        document.getElementById('info').setAttribute('data-aos', ' ');
+        document.getElementById('contactMe').setAttribute('data-aos', ' ');
+
         
 
 
@@ -247,4 +242,4 @@
 
 </script>
 
-@endsection
+@stop

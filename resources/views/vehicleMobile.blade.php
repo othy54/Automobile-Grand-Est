@@ -3,7 +3,6 @@
 @section('css')
 
 <style>
-    
     .slick-track img {
         border: 2px solid white;
     }
@@ -25,7 +24,7 @@
     td:first-child {
         font-weight: bold;
         color: #B81111;
-        
+
     }
 
     td {
@@ -38,9 +37,6 @@
 
 @section('content')
 
-{{-- <div id="filter">
-
-</div> --}}
 
 <div class="container" style="padding-top: 80px;">
 
@@ -114,29 +110,31 @@
         </div>
         <hr>
         <div style="text-align: center; font-size: 20px">
-            
-                <span style="font-weight: bold; color: #B81111">Options</span><br>
-                <div id="allOptions">
 
-                    {!! nl2br($vehicle[0]->option) !!}
+            <span style="font-weight: bold; color: #B81111">Options</span><br>
+            <div id="allOptions">
 
-                </div>
-    
+                {!! nl2br($vehicle[0]->option) !!}
+
+            </div>
+
         </div>
         <hr>
         <div style="text-align: center; font-size: 20px">
 
-                <span style="font-weight: bold; color: #B81111">Description</span><br> <br>
-                <div style="text-align: left">
+            <span style="font-weight: bold; color: #B81111">Description</span><br> <br>
+            <div style="text-align: left">
 
-                    {!! nl2br($vehicle[0]->description) !!}
+                {!! nl2br($vehicle[0]->description) !!}
 
-                </div>
+            </div>
         </div>
         <hr>
-        <div>
+        <div style="text-align: center; font-size: 6vw; color:#B81111" class="mb-4">
 
-            
+            Appelez le 06 45 31 84 39 pour ce véhicule
+
+
         </div>
 
     </div>
@@ -159,12 +157,8 @@
             arrows: false,
             autoplay: true,
         });
-        
 
     })
-
-    
-
 
 </script>
 

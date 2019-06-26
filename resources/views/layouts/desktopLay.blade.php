@@ -9,8 +9,8 @@
         content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
     <link rel="stylesheet" href="/assets/bootstrap.min.css" defer>
-    <link rel="stylesheet" href="/assets/aos.css">
-    <link rel="stylesheet" href="/assets/slick.min.css" async defer>
+    <link rel="stylesheet" href="/assets/aos.css" defer>
+    <link rel="stylesheet" href="/assets/slick.min.css" defer>
     <link rel="stylesheet" href="/assets/cookieconsent.min.css" defer/>
 
 
@@ -126,7 +126,7 @@
 
     <div id="contactContent" class="d-flex" style="height: 70vh;">
 
-        <div style="width:50%;" id="info" class="d-flex align-items-center" data-aos="fade-down">
+        <div style="width:50%;" id="info" class="d-flex align-items-center" data-aos="fade-up">
 
             <div class="col-6" style="padding-left: 80px; height: 50%; ">
                 <div style="font-size: 2vw; font-weight:bold">
@@ -167,7 +167,7 @@
 
         </div>
 
-        <div style="width:50%;" id="contactMe" class="d-flex justify-content-center" data-aos="fade-up">
+        <div style="width:50%;" id="contactMe" class="d-flex justify-content-center" data-aos="fade-down">
             <div style="width: 70%;" class="d-flex flex-column justify-content-center">
                 <span>Formulaire de contact</span>
                 <form method="POST" action=" {{ url('/contact') }} " class="form-group">
@@ -216,7 +216,7 @@
     <script src="/assets/jquery-3.3.1.min.js"></script>
     <script src="/assets/popper.min.js"></script>
     <script src="/assets/bootstrap.min.js"></script>
-    <script src="/assets/aos.js"></script>
+    <script src="/assets/aos.js" defer></script>
     <script src="/assets/slick.min.js"></script>
     <script src="/assets/lozad.min.js"></script>
     <script src="/assets/cookieconsent.min.js"></script>
