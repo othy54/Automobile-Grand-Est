@@ -41,8 +41,7 @@
                     </h2>
                 </div>
 
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                    data-parent="#accordionExample">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
 
                         <label for="immatriculation">Plaque d'immatriculation : </label>
@@ -52,7 +51,9 @@
 
                         <div id="loadingSpinner" class="spinner-border" style="display:none" role="status">
                             <span class="sr-only">Loading...</span>
-                        </div>
+                        </div> <br>
+                        <span style="color:red; display:none" id="errorSIV">Plaque d'immatriculation invalide ou n'est
+                            plus en circulation</span>
 
                         <br><br>
 
@@ -60,48 +61,43 @@
                             class="form-group d-flex flex-wrap dropzone">
                             @csrf
 
-
-
                             <div class="col-6 mt-4">
-                                <label for="file"> Photos </label>
-                                <input type="file" name="image[]" id="file" multiple class="form-control champs">
+                                <label for="image"> Photos </label>
+                                <input type="file" name="image[]" id="file" multiple class="form-control champs"
+                                    required>
                             </div>
-
-
-
 
                             <div class="col-6 mt-4">
                                 <label for="brand">Marque</label>
-                                <input id="brandVehicle" type="text" name="brand" class="form-control champs">
+                                <input id="brandVehicle" type="text" name="brand" class="form-control champs" required>
                             </div>
-
 
                             <div class="col-6 mt-4">
                                 <label for="model">Modèle</label>
-                                <input id="modelVehicle" type="text" name="model" class="form-control champs">
+                                <input id="modelVehicle" type="text" name="model" class="form-control champs" required>
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="version">Version</label>
-                                <input id="versionVehicle" type="text" name="version" class="form-control champs">
+                                <input id="versionVehicle" type="text" name="version" class="form-control champs"
+                                    required>
                             </div>
-
 
                             <div class="col-6 mt-4">
                                 <label for="door">Nombre de portes</label>
-                                <input id="doorVehicle" type="number" name="door" class="form-control champs">
+                                <input id="doorVehicle" type="number" name="door" class="form-control champs" required>
                             </div>
-
 
                             <div class="col-6 mt-4">
                                 <label for="power">Puissance (cv)</label>
-                                <input id="powerVehicle" type="number" name="power" class="form-control champs">
+                                <input id="powerVehicle" type="number" name="power" class="form-control champs"
+                                    required>
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="fuel">Carburant</label>
 
-                                <select name="fuel" class="form-control champs">
+                                <select name="fuel" class="form-control champs" required>
 
                                     <option value="1">Essence</option>
                                     <option value="2">Diesel</option>
@@ -114,22 +110,22 @@
 
                             <div class="col-6 mt-4">
                                 <label for="distance">Distance parcourue (km) </label>
-                                <input type="number" name="distance" class="form-control champs">
+                                <input type="number" name="distance" class="form-control champs" required>
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="price">Prix</label>
-                                <input type="number" name="price" class="form-control champs">
+                                <input type="number" name="price" class="form-control champs" required>
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="date">Date de mise en circulation</label>
-                                <input id="dateVehicle" type="date" name="date" class="form-control champs">
+                                <input id="dateVehicle" type="date" name="date" class="form-control champs" required>
                             </div>
 
                             <div class="col-6 mt-4">
                                 <label for="boite">Boite de vitesse</label>
-                                <select name="boite" class="form-control champs">
+                                <select name="boite" class="form-control champs" required>
                                     <option value="1">Automatique</option>
                                     <option value="2">Semi-Automatique</option>
                                     <option value="3">Sequentielle</option>
@@ -139,7 +135,8 @@
 
                             <div class="col-6 mt-4">
                                 <label for="place">Nombre de place</label>
-                                <input id="placeVehicle" type="number" name="place" class="form-control champs">
+                                <input id="placeVehicle" type="number" name="place" class="form-control champs"
+                                    required>
                             </div>
 
                             <div class="col-12 mt-4 checkboxis" id="myOptions">
@@ -167,13 +164,13 @@
                             </div>
 
 
-                            <div class="col-12 mt-4" >
+                            <div class="col-12 mt-4">
                                 <label for="description">Description</label>
                                 <textarea style="white-space: pre-line; position:relative; z-index: 55" id="myTextArea"
-                                    name="description" rows="10" class="form-control"></textarea>
+                                    name="description" rows="10" class="form-control" required></textarea>
                             </div>
 
-                            
+
 
 
                             <div class="col-12 mt-4 text-right">
@@ -199,6 +196,7 @@
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionExample">
                     @foreach($vehicles as $index => $vehicle)
+                    @if($vehicle->sold == 0)
                     <div class="card-body">
                         <div class="row">
 
@@ -207,7 +205,7 @@
                                     style="width: 100%;">
                             </div>
                             <div class="col-8">
-                                <h2><a href=" {{ url('/catalogue/'.$vehicle->id) }} ">{{ $vehicle->brand }}
+                                <h2><a href="{{ url('/catalogue/'.$vehicle->id) }}">{{ $vehicle->brand }}
                                         {{ $vehicle->model }} {{ $vehicle->version }}</a></h2>
                                 <span> {{ $vehicle->power }} cv</span><br>
                                 <span> {{ $vehicle->price }} €</span><br>
@@ -224,6 +222,49 @@
 
                     </div>
                     <hr>
+                    @endif
+                    @endforeach
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="true" aria-controls="collapseThree">
+                            Véhicules vendus
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    @foreach($vehicles as $index => $vehicle)
+                    @if($vehicle->sold == 1)
+                    <div class="card-body" @if(!empty($vehicle->deleted_at)) style="background-color: lightpink" @endif>
+                        <div class="row">
+
+                            <div class="col-2">
+                                <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="image-fluid"
+                                    style="width: 100%;">
+                            </div>
+                            <div class="col-8">
+                                <h2><a href="{{ url('/catalogue/'.$vehicle->id) }}">{{ $vehicle->brand }}
+                                        {{ $vehicle->model }} {{ $vehicle->version }}</a></h2>
+                                <span> {{ $vehicle->power }} cv</span><br>
+                                <span> {{ $vehicle->price }} €</span><br>
+                                <span> {{ $vehicle->distance }} km</span><br>
+                            </div>
+                            <div class="col-2">
+                                <a href="{{ url('/home/catalogue/update/'.$vehicle->id) }}"><button
+                                        class="btn btn-light" value="{{ $vehicle->id }}" id="btnToUpdate"> Modifier
+                                    </button></a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    @endif
                     @endforeach
 
                 </div>
@@ -247,13 +288,15 @@
 <script>
     $(document).ready(function() {
 
-        var tab = ["Commandes au volant","Antidémarrage","ABS","Bluetooth","Régulateur/Limiteur de vitesse","ESP","Ordinateur de bord","Radar de recul","Essuie glace automatique","Direction assistée","AUX","USB","Isofix","GPS","Climatiseur","Clim bi-zone","Chargeur 6 CD","Banquette 2/3 1/3","Démarrage sans clé","Démarrage en côté","4x4","4x2","Système DVD","Siège chauffant","Siège refroidissement","Siège electrique","Siège massant","Vitres avants automatiques","Vitres arrières automatiques","MP3","Affichage tête haute","GPS indicatif","Aide au stationnement avant","Aide au stationnement arrière","Park assist","Anti-franchissement de ligne","Anti-collision","Vision nocturne","Caméra de recul","Caméra 360","Téléphone","Chargeur induction","Boite à gants réfrigéré","Centralisation automatique","Plein phare automatique","Xénon","Anti-brouillard avant","Attelage"].sort();
+        var tab = ["Commandes au volant","Antidémarrage","ABS","Bluetooth","Régulateur/Limiteur de vitesse","ESP","Ordinateur de bord","Radar de recul","Essuie glace automatique","Direction assistée","AUX","USB","Isofix","GPS","Climatiseur","Clim bi-zone","Chargeur 6 CD","Banquette 2/3 1/3","Démarrage sans clé","Démarrage en côte","4x4","4x2","Système DVD","Siège chauffant","Siège refroidissement","Siège électrique","Siège massant","Vitres avant automatiques","Vitres arrière automatiques","MP3","Affichage tête haute","GPS indicatif","Aide au stationnement avant","Aide au stationnement arrière","Park assiste","Anti-franchissement de ligne","Anti-collision","Vision nocturne","Caméra de recul","Caméra 360","Téléphone","Chargeur induction","Boite à gants réfrigéré","Centralisation automatique","Plein phare automatique","Xénon","Anti-brouillard avant","Attelage"].sort();
         for(var i = 0; i < tab.length; i++) {
             $('#myOptions').append('<div class="pretty p-default col-3"><input type="checkbox" class="myChecked" value="'+tab[i]+'" /><div class="state p-danger"><label>'+tab[i]+'</label></div></div>')
         }
 
         $('#searchVehicle ').on('click', function () {
             $('#loadingSpinner').show();
+            $('#errorSIV').hide()
+
 
             var siv = $('#siv').val();
 
@@ -279,6 +322,8 @@
 
                 },
                 error: function(data) {
+                    $('#loadingSpinner').hide();
+                    $('#errorSIV').show()
                     console.log(data)
                 }
             });

@@ -1,4 +1,4 @@
-@extends('layouts.desktopLay') 
+@extends('layouts.desktopLay')
 @section('style')
 
 <style>
@@ -35,9 +35,18 @@
     a {
         text-decoration: none !important;
     }
+
+    #sold {
+        background-image: url('/img/vendu.png');
+        background-size: cover;
+        width: 40%;
+        height: 40%;
+        position: absolute;
+
+    }
 </style>
 
-@stop 
+@stop
 @section('content')
 
 <div id="titlePage">
@@ -142,7 +151,14 @@
         <div class="card" style="" data-aos="fade-up">
 
             <div class="row no-gutters">
+
                 <div class="col-4">
+                    @if($vehicle->sold == 1)
+                    <div id="sold">
+
+                    </div>
+                    @endif
+
                     <a href={{ url( '/catalogue/'.$vehicle->id) }}><img src="/uploads/{{ $images[$index]->imageName }} "
                             alt="" class="card-img-top img-fluid"></a>
                 </div>
@@ -177,51 +193,42 @@
         <div style="text-align: center; color: white">
             <h2 style=" line-height: 30px; font-size: 2.2vw">Vous ne trouvez pas ce que vous cherchez ? </h2><br>
             <h3 style="font-size: 1.7vw">Faites une recherche personnalisée <a href="{{ url('/perso') }}"
-                    style="color: white;">>> ici << </a> 
-            </h3> 
-        </div>         
-    </div> 
-</div> 
-@stop 
+                    style="color: white;">>> ici << </a> </h3> </div> </div> </div> @stop @section('script') <script>
 
-@section('script') 
+                        $('#brandSelected').on('change', function() {
 
-<script>
+                        var brand = $('#brandSelected option:selected').text();
+                        $.ajax({
+                        headers: { 'X-CSRF-Token': '{{ csrf_token() }}' },
+                        method: 'post',
+                        url: '/search',
+                        data: { brand: brand },
+                        success: function(data) {
+                        data = JSON.parse(data)
+                        console.log(data)
+                        $('#modelSelected').html('<option></option>');
+                        $.each(data, function(i, val) {
 
-$('#brandSelected').on('change', function() {
+                        $('#modelSelected').append('<option>' + val.model + '</option>')
+                        })
 
-    var brand = $('#brandSelected option:selected').text();
-    $.ajax({
-        headers: { 'X-CSRF-Token': '{{ csrf_token() }}' },
-        method: 'post',
-        url: '/search',
-        data: { brand: brand },
-        success: function(data) {
-            data = JSON.parse(data)
-            console.log(data)
-            $('#modelSelected').html('<option></option>');
-            $.each(data, function(i, val) {
+                        }
+                        });
+                        })
 
-             $('#modelSelected').append('<option>' + val.model + '</option>')
-            })
+                        $('#moreCriteria').on('click', function() {
+                        $('.hideSelect').slideToggle();
 
-        }
-    });
-})
+                        if($('#moreCriteria').text() == "+ de critère") {
+                        $('#moreCriteria').text("- de critère")
+                        }else{
+                        $('#moreCriteria').text("+ de critère")
+                        }
 
-$('#moreCriteria').on('click', function() {
-    $('.hideSelect').slideToggle();
-
-    if($('#moreCriteria').text() == "+ de critère") {
-     $('#moreCriteria').text("- de critère")
-    }else{
-     $('#moreCriteria').text("+ de critère")
-    }
-
-})
+                        })
 
 
 
-</script>
+                        </script>
 
-@stop
+                        @stop

@@ -100,6 +100,15 @@
     width: 40%;
 
   }
+
+  #sold {
+        background-image: url('/img/vendu.png');
+        background-size: cover;
+        width: 40%;
+        height: 40%;
+        position: absolute;
+
+    }
 </style>
 
 
@@ -244,7 +253,14 @@
         <div class="mySliders d-flex justify-content-center align-items-center">
           @foreach($vehicles as $index => $vehicle)
           <div class="card" style="background-color: whitesmoke; width: fit-content">
-            <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard">
+            <div>
+                @if($vehicle->sold == '1')
+                <div id="sold">
+
+                </div>
+                @endif
+              <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard">
+            </div>
             <div class="card-body">
               <h5 class="card-title text-center"><a href={{ url('/catalogue/'.$vehicle->id) }}> {{ $vehicle->brand }}
                   {{ $vehicle->model }} {{ $vehicle->version }} </a></h5>

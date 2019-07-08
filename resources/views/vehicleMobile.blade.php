@@ -42,7 +42,7 @@
 
     <div id="titleVehicle" class="mt-5">
 
-        <h1> {{ $vehicle[0]->brand }} {{ $vehicle[0]->model }} </h1>
+        <h1> {{ $vehicle[0]->brand }} {{ $vehicle[0]->model }} @if($vehicle[0]->sold == 1) (Vendu) @endif</h1>
         <hr>
 
 
@@ -132,7 +132,7 @@
         <hr>
         <div style="text-align: center; font-size: 6vw; color:#B81111" class="mb-4">
 
-            Appelez le 06 45 31 84 39 pour ce véhicule
+                Appelez le 06 45 31 84 39 ou 06 18 24 37 75 pour ce véhicule
 
 
         </div>

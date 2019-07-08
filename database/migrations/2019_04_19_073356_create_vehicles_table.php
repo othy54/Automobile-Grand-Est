@@ -15,20 +15,19 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('brand')->nullable();
-            $table->string('model')->nullable();
-            $table->string('version')->nullable();
-            $table->integer('door')->nullable();
-            $table->integer('power')->nullable();
-            $table->integer('distance')->nullable();
-            $table->float('price')->nullable();
-            $table->date('date')->nullable();
-            $table->enum('boite', ['Automatique', 'Semi-Automatique', 'Sequentielle', 'Manuelle'])->nullable();
-            $table->enum('fuel', ['Essence', 'Diesel', 'Electrique', 'Hybride'])->nullable();
-            $table->integer('place')->nullable();
-            $table->longText('option')->nullable();
-            $table->tinyInteger('sold')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('brand');
+            $table->string('model');
+            $table->string('version');
+            $table->integer('door');
+            $table->integer('power');
+            $table->integer('distance');
+            $table->float('price');
+            $table->date('date');
+            $table->enum('boite', ['Automatique', 'Semi-Automatique', 'Sequentielle', 'Manuelle']);
+            $table->enum('fuel', ['Essence', 'Diesel', 'Electrique', 'Hybride']);
+            $table->integer('place');
+            $table->longText('option');
+            $table->longText('description');
             $table->timestamps();
         });
     }

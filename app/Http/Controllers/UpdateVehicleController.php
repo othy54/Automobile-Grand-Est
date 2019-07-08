@@ -24,9 +24,10 @@ class UpdateVehicleController extends Controller
         $placeVehicle = request('place');
         $optionVehicle = request('option');
         $descriptionVehicle = request('description');
+        $soldVehicle = request('sold');
         $id = request('id');
 
-        $catalogue = DB::table('vehicles')->where('id', $id)->update([
+        $catalogue = Vehicles::where('id', $id)->update([
 
             'brand' => $brandVehicle,
             'model' => $modelVehicle,
@@ -41,18 +42,17 @@ class UpdateVehicleController extends Controller
             'place' => $placeVehicle,
             'option' => $optionVehicle,
             'description' => $descriptionVehicle,
+            'sold' => $soldVehicle
             
         ]);
         
 
         if(request()->hasFile('image')) { 
-        $delete = DB::table('images')->where('vehicles_id', $id)->delete();
+        $delete = Images::where('vehicles_id', $id)->delete();
         
 
         $files = request()->file('image');
-        
-
-        $name = date("d-m-Y");
+        $date = date("d-m-Y");
         $number = 1;
     
         foreach($files as $file) {
@@ -64,7 +64,7 @@ class UpdateVehicleController extends Controller
                 array_push($array, $letters[$rand]);
             }
             
-        $imageName = implode('', $array).'('.$name.')'.'.'.$file->getClientOriginalExtension();
+        $imageName = implode('', $array).'('.$date.')'.'.'.$file->getClientOriginalExtension();
 
         $file->move(public_path('uploads'), $imageName);
 

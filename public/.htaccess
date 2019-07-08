@@ -47,6 +47,7 @@ AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule> 
 
+
 # BEGIN Expire headers
 <IfModule mod_expires.c>
  ExpiresActive On
@@ -68,6 +69,7 @@ AddOutputFilterByType DEFLATE application/x-javascript
  ExpiresByType application/x-shockwave-flash "access plus 31557600 seconds"
 </IfModule>
 # END Expire headers
+
 
 # BEGIN Cache-Control Headers
 <IfModule mod_headers.c>

@@ -12,10 +12,7 @@
     <link rel="stylesheet" href="/assets/aos.css" defer>
     <link rel="stylesheet" href="/assets/slick.min.css" defer>
     <link rel="stylesheet" href="/assets/cookieconsent.min.css" defer/>
-
-
-
-
+    
     <!-- Styles -->
     <style>
         @font-face {
@@ -176,9 +173,9 @@
 
                     <input id="nameForm" name='name' type="text" placeholder="Nom" class="form-control" required>
                     <input id="emailForm" name='email' type="mail" placeholder="Mail" class="form-control" required>
-                    <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control">
+                    <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control" required>
                     <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30"
-                        style="height: 30vh" class="form-control"></textarea>
+                        style="height: 30vh" class="form-control" required></textarea>
                     <button type="submit">Envoyer</button> @if(session()->has('message'))
                     <div class="alert alert-success" style="width: 50%">
                         {{ session()->get('message') }}

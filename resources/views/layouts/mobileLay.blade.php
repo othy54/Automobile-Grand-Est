@@ -217,9 +217,9 @@
 
         <input id="nameForm" name='name' type="text" placeholder="Nom" class="form-control" required>
         <input id="emailForm" name='email' type="mail" placeholder="Mail" class="form-control" required>
-        <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control">
+        <input id="objectForm" name='object' type="text" placeholder="Objet" class="form-control" required>
         <textarea id="messageForm" name='message' placeholder="Message" name="" id="" cols="30" style="height: 20vh"
-          class="form-control"></textarea>
+          class="form-control" required></textarea>
         <button type="submit">Envoyer</button> @if(session()->has('message'))
         <div class="alert alert-success" style="width: 50%">
           {{ session()->get('message') }}

@@ -1,4 +1,4 @@
-@extends('layouts.desktopLay') 
+@extends('layouts.desktopLay')
 @section('style')
 
 
@@ -116,10 +116,17 @@
     }
 
     #map {
-            height: 45vh;
-        }
+        height: 45vh;
+    }
 
-    
+    #sold {
+        background-image: url('/img/vendu.png');
+        background-size: cover;
+        width: 40%;
+        height: 40%;
+        position: absolute;
+
+    }
 </style>
 
 @stop @section('content')
@@ -277,15 +284,24 @@
 
                 @foreach($vehicles as $index => $vehicle)
                 <div class="card" style="background-color: whitesmoke; width: fit-content">
-                    <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard"
-                    >
+                    <div>
+                        @if($vehicle->sold == '1')
+                        <div id="sold">
+
+                        </div>
+                        @endif
+                        <img src="/uploads/{{ $images[$index]->imageName }}" alt="" class="card-img-top lozard">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title"><a href={{ url('/catalogue/'.$vehicle->id) }}> {{ $vehicle->brand }}
                                 {{ $vehicle->model }} {{ $vehicle->version }} </a></h5>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <span style="font-size: 20px; color: #B81111">{{ number_format($vehicle->distance, 0, '.',' ') }} km</span><span
-                                style="font-size: 20px; color: #B81111">{{ number_format($vehicle->price, 0, '.',' ') }} €</span>
+                            <span
+                                style="font-size: 20px; color: #B81111">{{ number_format($vehicle->distance, 0, '.',' ') }}
+                                km</span><span
+                                style="font-size: 20px; color: #B81111">{{ number_format($vehicle->price, 0, '.',' ') }}
+                                €</span>
                         </div>
 
                     </div>
@@ -318,9 +334,10 @@
     <span>Retrouvez-nous aussi sur :<span>
 
             <div class="mt-3">
-                <a href="https://www.facebook.com/Automobiles-Grand-Est-1453452848057353/" target=_blank><img src="/img/facebook.png"
-                        alt="" class="img-fluid mr-5"></a> <a href="https://www.leboncoin.fr/boutique/71099" target=_blank><img
-                        src="/img/leboncoin.png" alt="" class="img-fluid"></a>
+                <a href="https://www.facebook.com/Automobiles-Grand-Est-1453452848057353/" target=_blank><img
+                        src="/img/facebook.png" alt="" class="img-fluid mr-5"></a> <a
+                    href="https://www.leboncoin.fr/boutique/71099" target=_blank><img src="/img/leboncoin.png" alt=""
+                        class="img-fluid"></a>
 
             </div>
 
@@ -331,7 +348,6 @@
 
 
 <script>
-
     var map;
 
     function initMap() {

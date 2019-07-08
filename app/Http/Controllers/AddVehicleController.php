@@ -27,6 +27,7 @@ class AddVehicleController extends Controller
         $placeVehicle = request('place');
         $optionVehicle = request('option');
         $descriptionVehicle = request('description');
+        $soldVehicle = "0";
 
         
 
@@ -45,6 +46,7 @@ class AddVehicleController extends Controller
             'place' => $placeVehicle,
             'option' => $optionVehicle,
             'description' => $descriptionVehicle,
+            'sold' => $soldVehicle
             
         ]);
 
@@ -52,7 +54,7 @@ class AddVehicleController extends Controller
         $files = request()->file('image');
         
 
-        $name = date("d-m-Y");
+        $date = date("d-m-Y");
         $number = 1;
     
         foreach($files as $file) {
@@ -64,11 +66,11 @@ class AddVehicleController extends Controller
                 array_push($array, $letters[$rand]);
             }
             
-        $imageName = implode('', $array).'('.$name.')'.'.'.$file->getClientOriginalExtension();
+        $imageName = implode('', $array).'('.$date.')'.'.'.$file->getClientOriginalExtension();
 
         $file->move(public_path('uploads'), $imageName);
 
-        $id = DB::table('vehicles')->latest('id')->first();
+        $id = Vehicles::latest('id')->first();
 
         $images = Images::create([
             
@@ -81,7 +83,7 @@ class AddVehicleController extends Controller
         $number++;
         
         }
-    }else {
+    } else {
 
         return 'no images';
     } ;
