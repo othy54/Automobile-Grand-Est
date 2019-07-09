@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Automobiles Grand-Est - Achat & Vente de voitures à Lunéville</title>
+  <title>Automobiles Grand Est - Achat & vente de voitures à Lunéville</title>
   <meta name="description"
     content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
 
@@ -162,7 +162,7 @@
       <a href="JavaScript:void(0);">
         <img class="img-fluid" id="menuB" src="/img/menuK.png" alt="">
       </a>
-      <img class="img-fluid" id="logo" src='/img/Logo.png' alt="vente achat voiture à lunéville">
+      <img class="img-fluid" id="logo" src='/img/vente-voiture-luneville.png' alt="vente achat voiture à lunéville près de Nancy">
     </nav>
   </div>
 

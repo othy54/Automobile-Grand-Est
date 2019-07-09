@@ -125,7 +125,7 @@
           <h2 style="font-size: 12vw">Automobiles Grand Est</h2>
           <br>
           <br>
-          <h2 style="font-size: 6vw">Achat, Vente & Location <br> de voitures à Lunéville</h2>
+          <h2 style="font-size: 6vw">Achat, Vente & Location <br> de voitures à Lunéville près de Nancy</h2>
 
         </div>
       </div>
@@ -181,7 +181,7 @@
     <div style="background-color: #B81111; text-align:center; color:white" class="mt-5 py-3">
       <div data-aos="fade-up" class="d-flex flex-column">
         <span style="font-size: 6vw; font-weight: 700">AUTOMOBILES GRAND EST</span>
-        <span> Votre expert en automobiles à Lunéville </span>
+        <span> Spécialiste en vente et achat d'automobiles à Lunéville près de Nancy </span>
       </div>
     </div>
 
