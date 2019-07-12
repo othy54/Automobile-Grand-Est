@@ -100,12 +100,11 @@
                             <div class="col-6 mt-4">
                                 <label for="fuel">Carburant</label>
 
-                                <select name="fuel" class="form-control champs">
-
-                                    <option value="1">Essence</option>
-                                    <option value="2">Diesel</option>
-                                    <option value="3">Electrique</option>
-                                    <option value="4">Hybride</option>
+                                <select name="fuel" class="form-control champs" id="fuel">
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Essence">Essence</option>
+                                    <option value="Electrique">Electrique</option>
+                                    <option value="Hybride">Hybride</option>
 
                                 </select>
 
@@ -131,11 +130,12 @@
 
                             <div class="col-6 mt-4">
                                 <label for="boite">Boite de vitesse</label>
-                                <select name="boite" class="form-control champs">
-                                    <option value="1">Automatique</option>
-                                    <option value="2">Semi-Automatique</option>
-                                    <option value="3">Sequentielle</option>
-                                    <option value="4">Manuelle</option>
+                                <select name="boite" class="form-control champs" id="boite">
+                                    <option value="Manuelle">Manuelle</option>
+                                    <option value="Automatique">Automatique</option>
+                                    <option value="Semi-Automatique">Semi-Automatique</option>
+                                    <option value="Sequentielle">Sequentielle</option>
+
                                 </select>
                             </div>
 
@@ -264,6 +264,11 @@
              var vehicleId = $(this).val();
             
         })
+
+        $('#fuel').val('{{ $vehicle[0]->fuel }}');
+        $('#boite').val('{{ $vehicle[0]->boite }}');
+
+        console.log(' {{ $vehicle[0]->fuel }} ')
 
        
 })

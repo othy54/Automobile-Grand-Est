@@ -98,9 +98,8 @@
                                 <label for="fuel">Carburant</label>
 
                                 <select name="fuel" class="form-control champs" required>
-
-                                    <option value="1">Essence</option>
                                     <option value="2">Diesel</option>
+                                    <option value="1">Essence</option>
                                     <option value="3">Electrique</option>
                                     <option value="4">Hybride</option>
 
@@ -126,10 +125,11 @@
                             <div class="col-6 mt-4">
                                 <label for="boite">Boite de vitesse</label>
                                 <select name="boite" class="form-control champs" required>
+                                    <option value="4">Manuelle</option>
                                     <option value="1">Automatique</option>
                                     <option value="2">Semi-Automatique</option>
                                     <option value="3">Sequentielle</option>
-                                    <option value="4">Manuelle</option>
+                                    
                                 </select>
                             </div>
 
