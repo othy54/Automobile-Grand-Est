@@ -71,7 +71,7 @@
 
     <div id="titleVehicle" class="mt-5">
 
-        <h1> {{ $vehicle[0]->brand }} {{ $vehicle[0]->model }} @if($vehicle[0]->sold == 1) (Vendu) @endif </h1>
+        <h1> {{ $vehicle[0]->brand }} {{ $vehicle[0]->model }} {{ $vehicle[0]->version }} @if($vehicle[0]->sold == 1) (Vendu) @endif </h1>
         <hr>
 
 
@@ -147,12 +147,12 @@
         <div style="text-align: center; font-size: 20px">
             
                 <span style="font-weight: bold; color: #B81111">Options</span><br>
-                <div style="display:none" id="allOptions">
+                <div id="allOptions">
 
                     {!! nl2br($vehicle[0]->option) !!}
 
                 </div>
-                <div id="expand" style="cursor:pointer">⯆</div>
+                
 
 
         </div>
@@ -189,14 +189,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#expand').on('click', function() {
-            if($(this).text() == "⯆") {
-                $(this).text("⯅")
-            }else{
-                $(this).text("⯆") 
-            }
-            $('#allOptions').slideToggle('slow');
-        })
+        
 
         $('.slider-for').hover(function () {
             $('#filter').show();
@@ -231,8 +224,8 @@
             focusOnSelect: true
         });
 
-        $('.slick-next').text('🡆');
-        $('.slick-prev').text('🡄');
+        $('.slick-next').text('>').css('font-weight' ,'bold');
+        $('.slick-prev').text('<').css('font-weight' ,'bold');
         $('.slick-arrow').addClass('btn btn-danger');
 
     })
