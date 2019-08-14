@@ -1,4 +1,9 @@
 @extends('layouts.desktopLay')
+@section('title')
+
+<title> Catalogue - Automobiles Grand Est </title>
+    
+@stop
 @section('style')
 
 <style>

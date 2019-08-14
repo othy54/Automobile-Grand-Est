@@ -1,5 +1,11 @@
 @extends('layouts.mobileLay')
 
+@section('title')
+
+<title> Recherche personnalisée - Automobiles Grand Est </title>
+    
+@stop
+
 @section('css')
 
 <style>

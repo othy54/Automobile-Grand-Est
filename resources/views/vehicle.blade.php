@@ -1,5 +1,11 @@
 @extends('layouts.desktopLay')
 
+@section('title')
+
+<title> {{ $vehicle[0]->brand }} {{ $vehicle[0]->model }} {{ $vehicle[0]->version }} - Automobiles Grand Est </title>
+    
+@stop
+
 @section('style')
 
 <style>

@@ -1,5 +1,11 @@
 @extends('layouts.desktopLay')
 
+@section('title')
+
+<title> Recherche personnalisée - Automobiles Grand Est </title>
+    
+@stop
+
 @section('style')
 
 <style>

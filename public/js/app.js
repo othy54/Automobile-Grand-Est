@@ -49437,8 +49437,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\wamp64\www\Laravel\AutomobileGrandEst\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\wamp64\www\Laravel\AutomobileGrandEst\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/othmanbensaoula/Documents/Bibliocode/Laravel/Automobile-Grand-Est/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/othmanbensaoula/Documents/Bibliocode/Laravel/Automobile-Grand-Est/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

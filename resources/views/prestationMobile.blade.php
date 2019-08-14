@@ -1,5 +1,11 @@
 @extends('layouts.mobileLay')
 
+@section('title')
+
+<title> Tarifs - Automobiles Grand Est </title>
+    
+@stop
+
 @section('css')
 <link rel="stylesheet" href="assets/twentytwenty.css" type="text/css" media="screen" />
 

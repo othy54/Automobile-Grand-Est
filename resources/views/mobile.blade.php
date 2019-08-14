@@ -1,4 +1,14 @@
 @extends('layouts.mobileLay')
+@section('title')
+
+<title>Automobiles Grand Est - Achat & vente de voitures à Lunéville</title>
+
+    <meta name="description"
+        content="Automobiles Grand Est est spécialisé dans l'achat, la vente, la location et le nettoyage de voitures situé à Lunéville près de Nancy">
+
+@stop
+
+
 @section('css')
 
 

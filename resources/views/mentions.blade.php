@@ -1,4 +1,18 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mentions légales - Autombiles Grand Est</title>
+    <link rel="stylesheet" href="/assets/bootstrap.min.css" defer>
+    
+
+</head>
+
+<body>
+<div class="container">
+    
 
 <p style="text-align:center"><span style="color:#FF0000"><span style="background-color:#D3D3D3">Si vous utilisez nos Mentions Légales, vous vous engagez à laisser les liens </span><strong><span style="background-color:#D3D3D3">Crédit sans en modifier ni les liens ni les ancres.</span></strong><span style="background-color:#D3D3D3"> </span></span><br />
     <span style="color:#FF0000"><span style="background-color:#D3D3D3">Par avance merci pour votre compréhension et le respect du travail effectué par toute l'équipe</span></span></p>
@@ -65,4 +79,7 @@
     Le site www.automobilegrandest.fr est en conformité avec le RGPD voir notre politique RGPD  https://editioneo.com/workflows/review/id/21994.</p>
     
     <p style="text-align:justify">Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
-    
+</div>
+</body>
+
+</html>

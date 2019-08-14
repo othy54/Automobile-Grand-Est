@@ -1,5 +1,11 @@
 @extends('layouts.mobileLay')
 
+@section('title')
+
+<title> Catalogue - Automobiles Grand Est </title>
+    
+@stop
+
 @section('css')
 
 <style>
