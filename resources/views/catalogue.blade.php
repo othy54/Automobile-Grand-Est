@@ -2,7 +2,7 @@
 @section('title')
 
 <title> Catalogue - Automobiles Grand Est </title>
-    
+
 @stop
 @section('style')
 
@@ -194,46 +194,48 @@
     </div>
 
     <div style="background-color: #B81111; padding: 25px" class="d-flex justify-content-center align-items-center">
-
         <div style="text-align: center; color: white">
-            <h2 style=" line-height: 30px; font-size: 2.2vw">Vous ne trouvez pas ce que vous cherchez ? </h2><br>
+            <h2 style=" line-height: 30px; font-size: 2.2vw">Vous ne trouvez pas ce que vous cherchez ? </h2>
+            <br>
             <h3 style="font-size: 1.7vw">Faites une recherche personnalisée <a href="{{ url('/perso') }}"
-                    style="color: white;">>> ici << </a> </h3> </div> </div> </div> @stop @section('script') <script>
+                    style="color: white;"> ici </a> </h3>
+        </div>
+    </div>
+</div>
+@stop
+@section('script')
+<script>
+$('#brandSelected').on('change', function() {
+    var brand = $('#brandSelected option:selected').text();
+    $.ajax({
+        
+        headers: { 'X-CSRF-Token': '{{ csrf_token() }}' },
+        method: 'post',
+        url: '/search',
+        data: { 
+            brand: brand 
+        },
+        success: function(data) {
+            data = JSON.parse(data)
+            $('#modelSelected').html('<option></option>');
+            $.each(data, function(i, val) {
+                $('#modelSelected').append('<option>' + val.model + '</option>')
+            })
+        }
+    });
+});
 
-                        $('#brandSelected').on('change', function() {
+$('#moreCriteria').on('click', function() {
+    $('.hideSelect').slideToggle();
 
-                        var brand = $('#brandSelected option:selected').text();
-                        $.ajax({
-                        headers: { 'X-CSRF-Token': '{{ csrf_token() }}' },
-                        method: 'post',
-                        url: '/search',
-                        data: { brand: brand },
-                        success: function(data) {
-                        data = JSON.parse(data)
-                        console.log(data)
-                        $('#modelSelected').html('<option></option>');
-                        $.each(data, function(i, val) {
-
-                        $('#modelSelected').append('<option>' + val.model + '</option>')
-                        })
-
-                        }
-                        });
-                        })
-
-                        $('#moreCriteria').on('click', function() {
-                        $('.hideSelect').slideToggle();
-
-                        if($('#moreCriteria').text() == "+ de critère") {
-                        $('#moreCriteria').text("- de critère")
-                        }else{
-                        $('#moreCriteria').text("+ de critère")
-                        }
-
-                        })
+    if($('#moreCriteria').text() == "+ de critère") {
+        $('#moreCriteria').text("- de critère")
+    }else{
+        $('#moreCriteria').text("+ de critère")
+    }
+});
 
 
 
-                        </script>
-
-                        @stop
+</script>
+@stop
