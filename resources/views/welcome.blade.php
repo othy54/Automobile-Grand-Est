@@ -387,8 +387,8 @@
 
         });
 
-        $('.slick-next').text('🡆');
-        $('.slick-prev').text('🡄');
+        $('.slick-next').text('>');
+        $('.slick-prev').text('<');
         $('.slick-arrow').addClass('btn btn-danger');
 
 
